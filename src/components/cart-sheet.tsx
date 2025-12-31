@@ -12,6 +12,7 @@ import { ShoppingCart, Phone, Plus, Minus } from 'lucide-react';
 import { type CartItem } from '@/app/page';
 import { type MenuItem } from '@/lib/menu';
 import { cn } from '@/lib/utils';
+import { WhatsappIcon } from './icons';
 
 type CartSheetProps = {
     cart: CartItem[];
@@ -40,6 +41,11 @@ const CartSheet = ({
         }
         return total;
     }, 0);
+
+    const generateWhatsAppMessage = () => {
+        const orderDetails = cart.map(item => `${item.name} (x${item.quantity})`).join(', ');
+        return `https://wa.me/918250104315?text=${encodeURIComponent(`Hello, I would like to order: ${orderDetails}`)}`;
+    };
 
     const content = (
         <SheetContent>
@@ -93,6 +99,11 @@ const CartSheet = ({
                         <Button disabled={cart.length === 0} className="w-full" asChild>
                             <Link href="tel:8250104315">
                                 <Phone className="mr-2 h-4 w-4" /> Call to Order
+                            </Link>
+                        </Button>
+                         <Button disabled={cart.length === 0} className="w-full bg-green-500 hover:bg-green-600 text-white" asChild>
+                            <Link href={generateWhatsAppMessage()} target="_blank" rel="noopener noreferrer">
+                                <WhatsappIcon className="mr-2 h-4 w-4" /> Order on WhatsApp
                             </Link>
                         </Button>
                         {cart.length > 0 && (
