@@ -1,0 +1,10 @@
+# Allow all user agents to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow specific paths if necessary (e.g., admin pages, carts)
+# Disallow: /admin
+# Disallow: /cart
+
+# Location of sitemap
+Sitemap: https://your-domain.com/sitemap.xml
