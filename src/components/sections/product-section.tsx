@@ -203,7 +203,8 @@ export const ProductDetailDialog = ({
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
             <DialogContent className="p-0 max-w-4xl h-full md:h-auto md:max-h-[90vh] flex flex-col md:flex-row shadow-neumorphic-light dark:shadow-neumorphic-dark border-0">
-                <div className="w-full md:w-1/2 relative md:min-h-[500px]">
+                {/* Image Section */}
+                <div className="w-full md:w-1/2 relative md:min-h-[500px] h-[40%] md:h-auto flex-shrink-0">
                     <div className="absolute inset-0">
                         {imageData ? (
                             <Image src={imageData.imageUrl} alt={item.description} layout="fill" objectFit="cover" data-ai-hint={imageData.imageHint} className="md:rounded-l-lg"/>
@@ -216,7 +217,8 @@ export const ProductDetailDialog = ({
                     </div>
                 </div>
 
-                <div className="w-full md:w-1/2 bg-secondary/30 md:rounded-r-lg flex flex-col">
+                {/* Details Section */}
+                <div className="w-full md:w-1/2 bg-secondary/30 md:rounded-r-lg flex flex-col flex-grow min-h-0">
                     <ScrollArea className="h-full">
                         <div className="p-6 md:p-8 flex flex-col h-full space-y-6">
                             <DialogHeader className="text-left">
@@ -511,6 +513,14 @@ const ProductCategory = ({
     const [selectedSort, setSelectedSort] = React.useState('default');
 
 
+    React.useEffect(() => {
+        // Disable sync for touch devices to prevent weird scrolling behavior
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (isTouchDevice) {
+            setIsSyncEnabled(false);
+        }
+    }, []);
+
     const apis = React.useMemo(() => [api1, api2], [api1, api2]);
     useSyncCarousel(apis, isSyncEnabled);
     
@@ -576,8 +586,14 @@ const ProductCategory = ({
             </div>
             
             <div
-              onMouseEnter={() => setIsSyncEnabled(true)}
-              onMouseLeave={() => setIsSyncEnabled(true)}
+              onMouseEnter={() => {
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                if (!isTouchDevice) setIsSyncEnabled(true);
+              }}
+              onMouseLeave={() => {
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                if (!isTouchDevice) setIsSyncEnabled(true);
+              }}
             >
               <ProductRow items={row1Items} setApi={setApi1} carouselId={`${category.name}-1`} cart={cart} onAddToCart={onAddToCart} onRemoveFromCart={onRemoveFromCart} isSyncEnabled={isSyncEnabled} onCardClick={onCardClick} />
               {row2Items.length > 0 && <ProductRow items={row2Items} setApi={setApi2} carouselId={`${category.name}-2`} cart={cart} onAddToCart={onAddToCart} onRemoveFromCart={onRemoveFromCart} isSyncEnabled={isSyncEnabled} onCardClick={onCardClick} />}
@@ -722,6 +738,7 @@ export default ProductSection;
     
 
     
+
 
 
 
