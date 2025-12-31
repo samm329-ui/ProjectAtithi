@@ -473,12 +473,12 @@ const ProductRow = React.memo(({
             </div>
 
             <div 
-                className="absolute top-0 left-0 h-full w-1/4 z-20"
+                className="absolute top-0 left-0 h-full w-1/4 z-20 hidden md:block"
                 onMouseEnter={() => startScrolling('prev')}
                 onMouseLeave={stopScrolling}
             />
             <div 
-                className="absolute top-0 right-0 h-full w-1/4 z-20"
+                className="absolute top-0 right-0 h-full w-1/4 z-20 hidden md:block"
                 onMouseEnter={() => startScrolling('next')}
                 onMouseLeave={stopScrolling}
             />
@@ -722,6 +722,7 @@ export default ProductSection;
     
 
     
+
 
 
 
