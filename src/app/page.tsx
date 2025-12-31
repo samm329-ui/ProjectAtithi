@@ -3,6 +3,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import Header from "@/components/header";
 import HeroSection from "@/components/sections/hero-section";
 import LoadingScreen from "@/components/loading-screen";
@@ -22,6 +23,7 @@ import ContactSection from "@/components/sections/contact-section";
 import MobileSearchHeader from "@/components/mobile-search-header";
 import CartSheet from "@/components/cart-sheet";
 import { MenuDialog } from "@/components/menu-dialog";
+import { WhatsappIcon } from "@/components/icons";
 
 
 export type CartItem = MenuItem & { quantity: number };
@@ -296,6 +298,17 @@ export default function Home() {
               }}
           />
       )}
+
+      {/* Floating WhatsApp Button for Mobile */}
+      <Link 
+        href="https://wa.me/918250104315"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-4 right-4 z-50 md:hidden bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-transform hover:scale-110"
+        aria-label="Chat on WhatsApp"
+      >
+        <WhatsappIcon className="h-8 w-8" />
+      </Link>
     </>
   );
 }
