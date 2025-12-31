@@ -33,13 +33,14 @@ const HeroSection = ({ onMenuClick }: HeroSectionProps) => {
     <section id="home" className="relative h-screen w-full overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 z-[-1] bg-black">
-        <Image
-          key={currentSection.animatedWebpUrl}
-          src={currentSection.animatedWebpUrl}
-          alt="Animated background"
-          fill
-          className="object-cover transition-opacity duration-500"
-          priority
+      <video
+          key="hero-video"
+          src="https://yryoxzexvuhimvezdwle.supabase.co/storage/v1/object/public/asset/hero%20animation%201080.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
