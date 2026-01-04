@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -35,7 +34,7 @@ const HeroSection = ({ onMenuClick }: HeroSectionProps) => {
       <div className="absolute inset-0 z-[-1] bg-black">
       <video
           key="hero-video"
-          src="https://yryoxzexvuhimvezdwle.supabase.co/storage/v1/object/public/asset/hero%20animation%201080.mp4"
+          src="https://ydaeoeawwmggwuwxjqqz.supabase.co/storage/v1/object/public/asset/Create_an_animation_1080p_202601041221.mp4"
           autoPlay
           loop
           muted
