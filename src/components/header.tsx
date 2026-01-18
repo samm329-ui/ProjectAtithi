@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -39,33 +38,16 @@ const Header = ({
   onCartToggle,
 }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Always show header if the dropdown is open
-      if (isDropdownOpen) {
-        setIsHeaderVisible(true);
-      } else {
-        // Determine visibility based on scroll direction
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          setIsHeaderVisible(false); // Scrolling down
-        } else {
-          setIsHeaderVisible(true); // Scrolling up
-        }
-      }
-      
-      setLastScrollY(currentScrollY);
-      setIsScrolled(currentScrollY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, isDropdownOpen]);
+  }, []);
 
   const desktopNavLinks = config.navbarLinks.filter(link => link.name !== 'Products');
   const mobileNavLinks = config.navbarLinks;
@@ -85,9 +67,7 @@ const Header = ({
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
     isMobile 
       ? "bg-background/80 shadow-lg backdrop-blur-sm"
-      : isHeaderVisible
-        ? "translate-y-0" 
-        : "-translate-y-full",
+      : "translate-y-0",
     !isMobile && (isScrolled ? "bg-background/80 shadow-lg backdrop-blur-sm" : "bg-transparent")
   );
 
