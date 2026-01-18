@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/header";
 import HeroSection from "@/components/sections/hero-section";
@@ -13,7 +13,6 @@ import ProductSection from "@/components/sections/product-section";
 import ReviewsSection from "@/components/sections/reviews-section";
 import RecommendationSection from "@/components/sections/recommendation-section";
 import Footer from "@/components/footer";
-import HeaderController from "@/components/header-controller";
 import { useToast } from "@/hooks/use-toast";
 import { type MenuItem, menuData } from "@/lib/menu";
 import { ProductDetailDialog } from "@/components/sections/product-section";
@@ -31,9 +30,7 @@ export type CartItem = MenuItem & { quantity: number };
 
 export default function Home() {
   const [isAppLoading, setIsAppLoading] = useState(true);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const headerTimerRef = useRef<NodeJS.Timeout | null>(null);
   
   const { toast } = useToast();
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -153,61 +150,6 @@ export default function Home() {
   useEffect(() => {
     setIsAppLoading(false);
   }, []);
-
-  const hideHeader = () => {
-    if (!isDropdownOpen && window.innerWidth >= 768) { // Only hide on desktop
-      headerTimerRef.current = setTimeout(() => {
-          setIsHeaderVisible(false);
-          headerTimerRef.current = null;
-      }, 1000);
-    }
-  }
-
-  const cancelHideHeader = () => {
-    if (headerTimerRef.current) {
-        clearTimeout(headerTimerRef.current);
-        headerTimerRef.current = null;
-    }
-  }
-
-  const showHeader = () => {
-    if (window.innerWidth >= 768) { // Only show on desktop hover
-      cancelHideHeader();
-      setIsHeaderVisible(true);
-      hideHeader();
-    }
-  };
-  
-  const toggleHeader = () => {
-    if (window.innerWidth >= 768) { // Only toggle on desktop
-      if (isHeaderVisible) {
-        setIsHeaderVisible(false);
-        cancelHideHeader();
-      } else {
-        showHeader();
-      }
-    }
-  };
-  
-  const handleDropdownOpenChange = (open: boolean) => {
-    setIsDropdownOpen(open);
-    if (window.innerWidth >= 768) { // Only manage desktop hover logic
-      if (open) {
-        cancelHideHeader();
-        setIsHeaderVisible(true);
-      } else {
-        showHeader();
-      }
-    }
-  }
-
-  useEffect(() => {
-    return () => {
-      if (headerTimerRef.current) {
-        clearTimeout(headerTimerRef.current);
-      }
-    };
-  }, []);
   
   const totalCartItems = cart.reduce((total, item) => total + item.quantity, 0);
 
@@ -216,16 +158,13 @@ export default function Home() {
     <>
       <LoadingScreen isLoading={isAppLoading} />
       <div className="hidden md:block">
-        <HeaderController onHover={showHeader} />
         <Header 
-          isHeaderVisible={isHeaderVisible} 
           cart={cart}
           onEmptyCart={handleEmptyCart}
           onAddToCart={handleAddToCart}
           onRemoveFromCart={handleRemoveFromCart}
-          onDropdownOpenChange={handleDropdownOpenChange}
-          onMouseEnter={cancelHideHeader}
-          onMouseLeave={hideHeader}
+          isDropdownOpen={isDropdownOpen}
+          onDropdownOpenChange={setIsDropdownOpen}
           onProductSelect={handleCardClick}
           isMobile={false}
           isCartOpen={isCartSheetOpen}
@@ -245,7 +184,7 @@ export default function Home() {
         <div className={`transition-opacity duration-500 ${isAppLoading ? 'opacity-0' : 'opacity-100'}`}>
           <main>
             <div className='hidden md:block'>
-              <HeroSection onMenuClick={toggleHeader} />
+              <HeroSection />
               <MenuSection />
               <BestSellerSection />
             </div>

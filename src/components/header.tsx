@@ -14,14 +14,12 @@ import ProductMenuDropdown from "./product-menu-dropdown";
 import { Badge } from "@/components/ui/badge";
 
 type HeaderProps = {
-  isHeaderVisible: boolean;
   cart: CartItem[];
   onEmptyCart: () => void;
   onAddToCart: (item: MenuItem) => void;
   onRemoveFromCart: (itemName: string) => void;
+  isDropdownOpen: boolean;
   onDropdownOpenChange: (open: boolean) => void;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
   onProductSelect: (item: MenuItem) => void;
   isMobile: boolean;
   isCartOpen: boolean;
@@ -29,29 +27,45 @@ type HeaderProps = {
 };
 
 const Header = ({ 
-  isHeaderVisible, 
   cart, 
   onEmptyCart, 
   onAddToCart, 
   onRemoveFromCart, 
+  isDropdownOpen,
   onDropdownOpenChange,
-  onMouseEnter,
-  onMouseLeave,
   onProductSelect,
   isMobile,
   isCartOpen,
   onCartToggle,
 }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (isMobile) return;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      
+      if (!isDropdownOpen) {
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          setIsHeaderVisible(false);
+        } else {
+          setIsHeaderVisible(true);
+        }
+      } else {
+        setIsHeaderVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+      setIsScrolled(currentScrollY > 10);
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY, isDropdownOpen, isMobile]);
 
   const desktopNavLinks = config.navbarLinks.filter(link => link.name !== 'Products');
   const mobileNavLinks = config.navbarLinks;
@@ -83,8 +97,6 @@ const Header = ({
     <>
       <header
         className={headerClasses}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
       >
         <div className="container mx-auto px-4">
           <div className="flex h-20 items-center justify-between">

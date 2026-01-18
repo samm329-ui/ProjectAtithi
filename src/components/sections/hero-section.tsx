@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -17,11 +18,9 @@ const socialLinks = [
     { name: 'Call', href: 'tel:8250104315', icon: CallIcon, isExternal: true },
 ];
 
-type HeroSectionProps = {
-  onMenuClick: () => void;
-};
+type HeroSectionProps = {};
 
-const HeroSection = ({ onMenuClick }: HeroSectionProps) => {
+const HeroSection = ({}: HeroSectionProps) => {
   const [currentSection] = useState<SectionData>(config.sections[0]);
   
   useEffect(() => {
@@ -44,14 +43,6 @@ const HeroSection = ({ onMenuClick }: HeroSectionProps) => {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
       
-      {/* Menu Trigger Button */}
-      <div className="absolute top-5 left-5 z-[60] md:hidden">
-        <Button variant="ghost" size="icon" onClick={onMenuClick} className="text-white bg-black/20 hover:bg-black/40 hover:text-white">
-          <Menu className="h-6 w-6" />
-          <span className="sr-only">Open Navigation</span>
-        </Button>
-      </div>
-
       <div className="container mx-auto px-4 h-full">
         <div className="relative z-10 flex h-full items-center justify-center text-white">
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-6 w-full px-4">
