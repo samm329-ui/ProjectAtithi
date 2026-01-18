@@ -42,24 +42,27 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-4">Connect With Us</h4>
             <div className="flex justify-center md:justify-start space-x-4">
               {socialLinks.map((social) => {
-                const socialIcon = (
-                  <button className="text-white/60 hover:text-primary transition-colors">
-                    <social.icon className="h-6 w-6" />
-                    <span className="sr-only">{social.name}</span>
-                  </button>
-                );
-
                 if (social.isExternal) {
                   return (
-                    <Link key={social.name} href={social.href} target="_blank" rel="noopener noreferrer">
-                      {socialIcon}
+                    <Link
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/60 hover:text-primary transition-colors"
+                    >
+                      <social.icon className="h-6 w-6" />
+                      <span className="sr-only">{social.name}</span>
                     </Link>
                   );
                 }
 
                 return (
                   <ComingSoonDialog key={social.name}>
-                    {socialIcon}
+                    <button className="text-white/60 hover:text-primary transition-colors">
+                      <social.icon className="h-6 w-6" />
+                      <span className="sr-only">{social.name}</span>
+                    </button>
                   </ComingSoonDialog>
                 );
               })}

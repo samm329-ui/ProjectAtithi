@@ -60,26 +60,29 @@ const HeroSection = ({}: HeroSectionProps) => {
               {/* Bottom Socials */}
               <div className="flex space-x-6">
                 {socialLinks.map((social) => {
-                    const socialIcon = (
+                  if (social.isExternal) {
+                    return (
+                      <a
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-white transition-colors"
+                      >
+                        <social.icon className="h-6 w-6" />
+                        <span className="sr-only">{social.name}</span>
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <ComingSoonDialog key={social.name}>
                       <button className="text-white/80 hover:text-white transition-colors">
                         <social.icon className="h-6 w-6" />
                         <span className="sr-only">{social.name}</span>
                       </button>
-                    );
-  
-                    if (social.isExternal) {
-                      return (
-                        <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer">
-                          {socialIcon}
-                        </a>
-                      );
-                    }
-  
-                    return (
-                      <ComingSoonDialog key={social.name}>
-                        {socialIcon}
-                      </ComingSoonDialog>
-                    );
+                    </ComingSoonDialog>
+                  );
                 })}
               </div>
           </div>
