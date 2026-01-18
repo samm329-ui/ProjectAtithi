@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -240,20 +239,6 @@ export default function Home() {
               }}
           />
       )}
-
-      {/* Floating WhatsApp Button for Mobile */}
-      <Link 
-        href="https://wa.me/918250104315"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={cn(
-          "fixed bottom-4 right-4 z-50 md:hidden",
-          "socialContainer containerFour rounded-full shadow-lg"
-        )}
-        aria-label="Chat on WhatsApp"
-      >
-        <WhatsappIcon className="socialSvg" />
-      </Link>
     </>
   );
 }
