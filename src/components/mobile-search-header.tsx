@@ -84,16 +84,18 @@ const MobileSearchHeader = ({ onSearch, onRecommendClick, onCartClick, onMenuCli
                     <Button variant="outline" onClick={onRecommendClick} className={cn("w-1/2", buttonClasses)}>
                         <span className="text-[10px] leading-none">AI Recommendation</span>
                     </Button>
-                    <Button variant="outline" className={cn("relative w-1/2", buttonClasses)} onClick={onCartClick}>
-                        <ShoppingCart className="h-5 w-5" />
-                        <span className='ml-2'>Cart</span>
+                    <div className="relative w-1/2">
+                        <Button variant="outline" className={cn("w-full", buttonClasses)} onClick={onCartClick}>
+                            <ShoppingCart className="h-5 w-5" />
+                            <span className='ml-2'>Cart</span>
+                             <span className="sr-only">View Cart</span>
+                        </Button>
                         {cartCount > 0 && (
                             <Badge variant="destructive" className="absolute -top-2 -right-2 h-5 w-5 rounded-full flex items-center justify-center p-1">
                                 {cartCount}
                             </Badge>
                         )}
-                        <span className="sr-only">View Cart</span>
-                    </Button>
+                    </div>
                 </div>
             </div>
         </div>
