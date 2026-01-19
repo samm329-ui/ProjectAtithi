@@ -676,8 +676,8 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
     const AddButton = ({isSmall}: {isSmall?: boolean}) => (
         <Button 
             className={cn(
-                "rounded-md bg-[#B07A3C] h-10 text-sm text-white hover:bg-[#B07A3C]/90",
-                isSmall ? "px-3 h-9" : "px-4"
+                "rounded-md bg-[#B07A3C] text-sm text-white hover:bg-[#B07A3C]/90",
+                isSmall ? "px-3 h-9" : "px-4 h-10"
             )} 
             onClick={(e) => {e.stopPropagation(); onAddToCart(item)}}
         >
@@ -902,7 +902,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                 </div>
 
                 <div className='block md:hidden'>
-                     <div className="p-4 bg-[#F6EFE8] sticky top-[88px] z-30">
+                     <div className="p-4 bg-[#F6EFE8]">
                         <div className="flex gap-4">
                             <Select onValueChange={(value) => {
                                 const el = document.getElementById(value);
@@ -988,6 +988,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 };
 
 export default ProductSection;
+
 
 
 
