@@ -19,6 +19,7 @@ import ContactSection from "@/components/sections/contact-section";
 import MobileSearchHeader from "@/components/mobile-search-header";
 import CartSheet from "@/components/cart-sheet";
 import { MenuDialog } from "@/components/menu-dialog";
+import MobileHeroCarousel from "@/components/mobile-hero-carousel";
 
 export type CartItem = MenuItem & { quantity: number };
 
@@ -174,8 +175,11 @@ export default function Home() {
       </div>
         <div className={`transition-opacity duration-500 ${isAppLoading ? 'opacity-0' : 'opacity-100'}`}>
           <main>
-            <div className="hidden md:block">
+             <div className="hidden md:block">
               <HeroSection />
+            </div>
+            <div className="md:hidden px-4">
+                <MobileHeroCarousel />
             </div>
             <div className="hidden md:block">
               <MenuSection />
