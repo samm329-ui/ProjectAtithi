@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from 'react';
@@ -17,7 +16,7 @@ import {
     DialogHeader,
     DialogTitle,
     DialogDescription,
-    DialogClose
+    DialogClose,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
@@ -918,8 +917,10 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                                 if (category) {
                                     handleOpenCategoryDialog(category);
                                 }
-                            }}>
-                                <SelectTrigger className="w-1/2 rounded-full h-11 bg-white shadow-sm border-stone-200">
+                            }}
+                            suppressHydrationWarning
+                            >
+                                <SelectTrigger className="w-1/2 rounded-full h-11 bg-white shadow-sm border-stone-200" suppressHydrationWarning>
                                     <SelectValue placeholder="All Categories" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -934,8 +935,8 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                                     ))}
                                 </SelectContent>
                             </Select>
-                            <Select defaultValue="popular">
-                                <SelectTrigger className="w-1/2 rounded-full h-11 bg-white shadow-sm border-stone-200">
+                            <Select defaultValue="popular" suppressHydrationWarning>
+                                <SelectTrigger className="w-1/2 rounded-full h-11 bg-white shadow-sm border-stone-200" suppressHydrationWarning>
                                     <SelectValue placeholder="Sort by: Popular" />
                                 </SelectTrigger>
                                 <SelectContent>
