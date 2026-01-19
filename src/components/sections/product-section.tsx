@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import * as React from 'react';
@@ -202,7 +203,7 @@ export const ProductDetailDialog = ({
 
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
-            <DialogContent className="p-0 max-w-4xl h-full md:h-auto md:max-h-[90vh] flex flex-col md:flex-row shadow-neumorphic-light dark:shadow-neumorphic-dark border-0">
+            <DialogContent className="p-0 w-full h-full max-w-full rounded-none border-0 flex flex-col top-0 left-0 translate-x-0 translate-y-0 md:flex-row md:h-auto md:max-h-[90vh] md:max-w-4xl md:rounded-lg md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
                 {/* Image Section */}
                 <div className="w-full md:w-1/2 relative md:min-h-[500px] h-[40%] md:h-auto flex-shrink-0">
                     <div className="absolute inset-0">
@@ -674,7 +675,12 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
                         <span className="text-sm text-muted-foreground">({item.ratingsCount})</span>
                     </div>
                     <p className="text-sm text-muted-foreground mb-4 line-clamp-1">{item.description}</p>
-                    <div className="flex justify-end">
+                    <div className="flex justify-end items-center gap-2">
+                        <Button asChild variant="outline" className="h-10">
+                            <Link href="tel:8250104315" onClick={(e) => e.stopPropagation()}>
+                                <Phone className="mr-2 h-4 w-4" /> Call to Order
+                            </Link>
+                        </Button>
                         {cartItem ? <QuantityCounter /> : <AddButton />}
                     </div>
                 </div>
@@ -700,7 +706,14 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
                 <p className="text-xs text-muted-foreground line-clamp-1 flex-grow">{item.description}</p>
                 <div className="flex justify-between items-end mt-2">
                     <p className="font-bold text-base text-foreground">Rs. {item.price}</p>
-                    {cartItem ? <QuantityCounter isSmall /> : <AddButton isSmall />}
+                    <div className="flex items-center gap-2">
+                        <Button asChild variant="outline" size="icon" className="h-9 w-9">
+                           <Link href="tel:8250104315" onClick={(e) => e.stopPropagation()}>
+                                <Phone className="h-4 w-4" />
+                            </Link>
+                        </Button>
+                         {cartItem ? <QuantityCounter isSmall /> : <AddButton isSmall />}
+                    </div>
                 </div>
             </div>
         </div>
@@ -879,31 +892,31 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                              const itemCount = category.items.length;
                         
                             return (
-                                <AccordionItem value={`item-${index}`} key={category.name} id={category.name.toLowerCase().replace(/\s+/g, '-')} className="border-0">
-                                    <AccordionTrigger className="p-0 text-lg font-bold hover:no-underline w-full [&>svg]:h-6 [&>svg]:w-6 [&>svg]:absolute [&>svg]:top-4 [&>svg]:right-4 [&>svg]:text-white [&>svg]:z-10">
-                                        <div className="relative w-full aspect-[16/9] text-left shadow-product rounded-xl">
+                                <AccordionItem value={`item-${index}`} key={category.name} id={category.name.toLowerCase().replace(/\s+/g, '-')} className="border-0 bg-white rounded-xl shadow-product overflow-hidden">
+                                     <AccordionTrigger className="p-0 text-lg font-bold hover:no-underline w-full [&>svg]:h-6 [&>svg]:w-6 [&>svg]:absolute [&>svg]:top-4 [&>svg]:right-4 [&>svg]:text-white [&>svg]:z-10">
+                                        <div className="relative w-full aspect-[16/7] text-left">
                                             <div className="absolute inset-0">
                                                 {imageData ? (
                                                     <Image
                                                         src={imageData.imageUrl}
                                                         alt={`Preview of ${category.name}`}
                                                         fill
-                                                        className="object-cover rounded-xl"
+                                                        className="object-cover"
                                                     />
                                                 ) : (
-                                                    <div className="w-full h-full bg-secondary rounded-xl flex items-center justify-center">
+                                                    <div className="w-full h-full bg-secondary flex items-center justify-center">
                                                         <Menu className="w-8 h-8 text-muted-foreground/50"/>
                                                     </div>
                                                 )}
                                             </div>
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                                             <div className="relative h-full flex flex-col justify-end p-4">
                                                 <h3 className="font-semibold text-xl text-white drop-shadow-md">{category.name}</h3>
                                                 <p className="text-sm text-white/90 drop-shadow-md">{itemCount} items</p>
                                             </div>
                                         </div>
                                     </AccordionTrigger>
-                                    <AccordionContent>
+                                    <AccordionContent className="p-4">
                                         <div className="space-y-4">
                                             {category.items.map(item => (
                                                 <MobileProductCard
@@ -930,3 +943,4 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 };
 
 export default ProductSection;
+
