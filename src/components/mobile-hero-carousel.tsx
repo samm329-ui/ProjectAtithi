@@ -12,8 +12,8 @@ import {
 import { type MenuItem, menuData } from '@/lib/menu';
 
 const carouselImageIds = [
-  'bestseller-butter-chicken',
   'bestseller-chicken-biryani',
+  'bestseller-butter-chicken',
   'Paneer Tikka (6 pcs)',
   'Garlic Naan',
   'Chicken Kasa',
