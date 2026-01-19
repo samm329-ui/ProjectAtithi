@@ -29,7 +29,7 @@ import {
 import { cn } from '@/lib/utils';
 import { Badge } from "@/components/ui/badge";
 import { Button } from '@/components/ui/button';
-import { Phone, Star, Filter, ShoppingCart, Plus, Minus, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
+import { Phone, Star, Filter, ShoppingCart, Plus, Minus, ChevronLeft, ChevronRight, MessageCircle, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { type CartItem } from '@/app/page';
 import { useToast } from '@/hooks/use-toast';
@@ -873,27 +873,52 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                         </div>
                     </div>
                     <Accordion type="single" collapsible className="w-full space-y-4" defaultValue="item-0">
-                        {allMenuItems.map((category, index) => (
-                            <AccordionItem value={`item-${index}`} key={category.name} id={category.name.toLowerCase().replace(/\s+/g, '-')} className="border-b-0 scroll-mt-32">
-                                <AccordionTrigger className="py-3 text-lg font-bold hover:no-underline text-foreground border-b border-stone-200">
-                                    {category.name}
-                                </AccordionTrigger>
-                                <AccordionContent className="pt-4">
-                                     <div className="space-y-4">
-                                        {category.items.map(item => (
-                                            <MobileProductCard
-                                                key={item.name}
-                                                item={item}
-                                                cartItem={cart.find(ci => ci.name === item.name)}
-                                                onAddToCart={onAddToCart}
-                                                onRemoveFromCart={onRemoveFromCart}
-                                                onCardClick={onCardClick}
-                                            />
-                                        ))}
-                                    </div>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
+                        {allMenuItems.map((category, index) => {
+                             const firstItem = category.items[0];
+                             const imageData = firstItem ? PlaceHolderImages.find(img => img.id === firstItem.name) : null;
+                             const itemCount = category.items.length;
+                        
+                            return (
+                                <AccordionItem value={`item-${index}`} key={category.name} id={category.name.toLowerCase().replace(/\s+/g, '-')} className="bg-white rounded-xl shadow-product overflow-hidden border-0">
+                                    <AccordionTrigger className="p-4 text-lg font-bold hover:no-underline text-foreground w-full [&>svg]:h-6 [&>svg]:w-6">
+                                        <div className="flex items-center gap-4 w-full text-left">
+                                            <div className="relative w-16 h-16 flex-shrink-0">
+                                                {imageData ? (
+                                                    <Image
+                                                        src={imageData.imageUrl}
+                                                        alt={`Preview of ${category.name}`}
+                                                        fill
+                                                        className="object-cover rounded-md"
+                                                    />
+                                                ) : (
+                                                    <div className="w-full h-full bg-secondary rounded-md flex items-center justify-center">
+                                                        <Menu className="w-8 h-8 text-muted-foreground/50"/>
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className="flex-grow">
+                                                <h3 className="font-semibold text-base text-foreground">{category.name}</h3>
+                                                <p className="text-sm text-muted-foreground">{itemCount} items</p>
+                                            </div>
+                                        </div>
+                                    </AccordionTrigger>
+                                    <AccordionContent className="pt-0">
+                                        <div className="space-y-4 p-4 bg-background">
+                                            {category.items.map(item => (
+                                                <MobileProductCard
+                                                    key={item.name}
+                                                    item={item}
+                                                    cartItem={cart.find(ci => ci.name === item.name)}
+                                                    onAddToCart={onAddToCart}
+                                                    onRemoveFromCart={onRemoveFromCart}
+                                                    onCardClick={onCardClick}
+                                                />
+                                            ))}
+                                        </div>
+                                    </AccordionContent>
+                                </AccordionItem>
+                            )
+                        })}
                     </Accordion>
                 </div>
             </>
