@@ -1,4 +1,3 @@
-
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -87,6 +86,10 @@ export default {
         'neumorphic-light': '15px 15px 30px #bebebe, -15px -15px 30px #ffffff',
         'neumorphic-dark': '15px 15px 30px #111111, -15px -15px 30px #151515',
         'product': '0 8px 20px rgba(0,0,0,0.06)',
+        'search': '0px 6px 18px rgba(33,24,21,0.06)',
+        'hero': '0px 12px 28px rgba(33,24,21,0.04)',
+        'filters': '0px 8px 20px rgba(33,24,21,0.04)',
+        'card-subtle': '0px 10px 24px rgba(33,24,21,0.04)',
       }
     },
   },

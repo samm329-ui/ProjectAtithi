@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Header from "@/components/header";
 import HeroSection from "@/components/sections/hero-section";
 import LoadingScreen from "@/components/loading-screen";
@@ -143,6 +144,14 @@ export default function Home() {
 };
 
   useEffect(() => {
+    // Manually set a cart for screenshot purposes, should be removed for production
+    if (cart.length === 0) {
+        const item1 = menuData[0].items[0]; // Chana Masala
+        const item2 = menuData[1].items[2]; // Chicken Roll
+        if(item1 && item2) {
+             setCart([{ ...item1, quantity: 1 }, { ...item2, quantity: 1 }]);
+        }
+    }
     setIsAppLoading(false);
   }, []);
   
@@ -179,8 +188,20 @@ export default function Home() {
              <div className="hidden md:block">
               <HeroSection />
             </div>
-            <div className="md:hidden px-4">
-                <MobileHeroCarousel />
+            <div className="md:hidden">
+              <div className="px-4">
+                  <h1 className="text-2xl font-semibold tracking-[0.2px] text-foreground mt-4 mb-3">🔥 Today’s Special</h1>
+                  <div className="relative aspect-[16/7] w-full rounded-2xl overflow-hidden shadow-hero">
+                      <Image 
+                          src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/bestseller-butter-chicken.png" 
+                          alt="Today's Special: Butter Chicken" 
+                          layout="fill" 
+                          objectFit="cover" 
+                          priority
+                      />
+                  </div>
+              </div>
+              <div className="my-3.5 mx-4 border-b border-border"></div>
             </div>
             <div className="hidden md:block">
               <MenuSection />
