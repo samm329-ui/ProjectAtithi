@@ -20,6 +20,7 @@ import MobileSearchHeader from "@/components/mobile-search-header";
 import CartSheet from "@/components/cart-sheet";
 import { MenuDialog } from "@/components/menu-dialog";
 import MobileHeroCarousel from "@/components/mobile-hero-carousel";
+import { MobileBottomNav } from "@/components/mobile-bottom-nav";
 
 export type CartItem = MenuItem & { quantity: number };
 
@@ -173,7 +174,7 @@ export default function Home() {
               cartCount={totalCartItems}
           />
       </div>
-        <div className={`transition-opacity duration-500 ${isAppLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`transition-opacity duration-500 ${isAppLoading ? 'opacity-0' : 'opacity-100'} pb-16 md:pb-0`}>
           <main>
              <div className="hidden md:block">
               <HeroSection />
@@ -205,6 +206,11 @@ export default function Home() {
           </main>
           <Footer />
         </div>
+
+        <MobileBottomNav 
+            cartCount={totalCartItems}
+            onCartClick={() => setIsCartSheetOpen(true)}
+        />
 
         {/* Cart Sheet for Mobile */}
         <CartSheet
