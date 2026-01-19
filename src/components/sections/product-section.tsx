@@ -879,31 +879,32 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                              const itemCount = category.items.length;
                         
                             return (
-                                <AccordionItem value={`item-${index}`} key={category.name} id={category.name.toLowerCase().replace(/\s+/g, '-')} className="bg-white rounded-xl shadow-product overflow-hidden border-0">
-                                    <AccordionTrigger className="p-4 text-lg font-bold hover:no-underline text-foreground w-full [&>svg]:h-6 [&>svg]:w-6">
-                                        <div className="flex items-center gap-4 w-full text-left">
-                                            <div className="relative w-16 h-16 flex-shrink-0">
+                                <AccordionItem value={`item-${index}`} key={category.name} id={category.name.toLowerCase().replace(/\s+/g, '-')} className="border-0">
+                                    <AccordionTrigger className="p-0 text-lg font-bold hover:no-underline w-full [&>svg]:h-6 [&>svg]:w-6 [&>svg]:absolute [&>svg]:top-4 [&>svg]:right-4 [&>svg]:text-white [&>svg]:z-10">
+                                        <div className="relative w-full aspect-[16/9] text-left shadow-product rounded-xl">
+                                            <div className="absolute inset-0">
                                                 {imageData ? (
                                                     <Image
                                                         src={imageData.imageUrl}
                                                         alt={`Preview of ${category.name}`}
                                                         fill
-                                                        className="object-cover rounded-md"
+                                                        className="object-cover rounded-xl"
                                                     />
                                                 ) : (
-                                                    <div className="w-full h-full bg-secondary rounded-md flex items-center justify-center">
+                                                    <div className="w-full h-full bg-secondary rounded-xl flex items-center justify-center">
                                                         <Menu className="w-8 h-8 text-muted-foreground/50"/>
                                                     </div>
                                                 )}
                                             </div>
-                                            <div className="flex-grow">
-                                                <h3 className="font-semibold text-base text-foreground">{category.name}</h3>
-                                                <p className="text-sm text-muted-foreground">{itemCount} items</p>
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl" />
+                                            <div className="relative h-full flex flex-col justify-end p-4">
+                                                <h3 className="font-semibold text-xl text-white drop-shadow-md">{category.name}</h3>
+                                                <p className="text-sm text-white/90 drop-shadow-md">{itemCount} items</p>
                                             </div>
                                         </div>
                                     </AccordionTrigger>
-                                    <AccordionContent className="pt-0">
-                                        <div className="space-y-4 p-4 bg-background">
+                                    <AccordionContent>
+                                        <div className="space-y-4">
                                             {category.items.map(item => (
                                                 <MobileProductCard
                                                     key={item.name}
