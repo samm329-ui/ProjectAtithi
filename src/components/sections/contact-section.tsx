@@ -49,29 +49,32 @@ const ContactSection = () => {
                 <div className="animated-social-links">
                     {contactDetails.map((detail, index) => {
                         const Icon = detail.icon;
-                        const socialIcon = (
-                            <div className={`animated-social-container ${detail.className}`}>
-                                <div className="icon-wrapper icon-initial">
-                                    <Icon className="h-6 w-6" />
-                                </div>
-                                <div className="icon-wrapper icon-hover">
-                                    <Icon className="h-6 w-6" />
-                                </div>
-                            </div>
-                        );
                         
                         if (detail.isExternal) {
                             return (
-                                <Link key={index} href={detail.href} target="_blank" rel="noopener noreferrer" aria-label={detail.title}>
-                                    {socialIcon}
+                                <Link
+                                    key={index}
+                                    href={detail.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={detail.title}
+                                    className={`Btn ${detail.className}`}
+                                >
+                                    <div className="svgContainer">
+                                        <Icon className="h-6 w-6" />
+                                    </div>
+                                    <div className="BG" />
                                 </Link>
                             );
                         }
 
                         return (
                             <ComingSoonDialog key={index}>
-                                <button className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-full">
-                                    {socialIcon}
+                                <button className={`Btn ${detail.className}`}>
+                                    <div className="svgContainer">
+                                        <Icon className="h-6 w-6" />
+                                    </div>
+                                    <div className="BG" />
                                 </button>
                             </ComingSoonDialog>
                         )

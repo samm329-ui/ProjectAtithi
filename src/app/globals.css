@@ -196,62 +196,79 @@
 }
 
 /* Animated Social Icons from user request */
+/* From Uiverse.io by vinodjangid07 */
 .animated-social-links {
+  height: fit-content;
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  -webkit-box-reflect: below 5px linear-gradient(transparent, #00000020);
+  gap: 20px;
 }
 
-.animated-social-container {
-  display: block;
+.Btn {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
   position: relative;
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.animated-social-container .icon-wrapper {
-  width: 50px;
-  height: 50px;
+.Btn .svgContainer {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  letter-spacing: 0.8px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  border: 1px solid rgba(156, 156, 156, 0.466);
+  z-index: 2;
 }
 
-.animated-social-container .icon-initial {
-  background-color: hsl(var(--card));
-}
-.animated-social-container .icon-initial svg {
-  stroke: hsl(var(--primary));
+.Btn .svgContainer svg {
+  stroke: hsl(var(--foreground));
+  transition: all 0.3s;
 }
 
-.animated-social-container .icon-hover {
+.Btn .BG {
   position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(100%);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 10px;
+  pointer-events: none;
+  transition: all 0.3s;
+  font-size: 0px;
 }
-.animated-social-container .icon-hover svg {
+
+.Btn.location .BG { background: #d44638; }
+.Btn.phone .BG { background: #316ff6; }
+.Btn.whatsapp .BG { background: #25D366; }
+.Btn.email .BG { background: linear-gradient(180deg, rgba(129, 34, 144, 1) 0%, rgba(77, 34, 124, 1) 91%); }
+
+.Btn:hover .BG {
+  transform: scale(1.5);
+  font-size: 20px;
+  color: white;
+}
+
+.Btn:hover .svgContainer {
+  border: 1px solid rgba(216, 216, 216, 0.466);
+  background-color: rgba(209, 209, 209, 0.466);
+  backdrop-filter: blur(4px);
+}
+
+.Btn:hover .svgContainer svg {
   stroke: white;
   fill: white;
-}
-
-.animated-social-container:hover .icon-initial {
-  transform: translateY(-100%);
-}
-.animated-social-container:hover .icon-hover {
-  transform: translateY(0);
-}
-
-/* Icon-specific hover backgrounds */
-.animated-social-container.location .icon-hover { background: #d44638; }
-.animated-social-container.phone .icon-hover { background: #316ff6; }
-.animated-social-container.whatsapp .icon-hover { background: #25D366; }
-.animated-social-container.email .icon-hover {
-  background: linear-gradient(180deg, rgba(129, 34, 144, 1) 0%, rgba(77, 34, 124, 1) 91%);
 }
