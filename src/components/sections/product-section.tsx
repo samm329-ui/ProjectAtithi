@@ -891,7 +891,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                             }}
                             suppressHydrationWarning={true}
                             >
-                                <SelectTrigger className="rounded-full h-auto min-h-11 bg-white shadow-sm border-stone-200 text-xs [&>span]:whitespace-nowrap" suppressHydrationWarning={true}>
+                                <SelectTrigger className="rounded-lg h-auto min-h-11 bg-white shadow-sm border-stone-200 text-xs [&>span]:whitespace-nowrap" suppressHydrationWarning={true}>
                                     <SelectValue placeholder="All Categories" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -907,7 +907,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                                 </SelectContent>
                             </Select>
                             <Select defaultValue="popular" suppressHydrationWarning={true}>
-                                <SelectTrigger className="rounded-full h-auto min-h-11 bg-white shadow-sm border-stone-200 text-xs [&>span]:whitespace-nowrap" suppressHydrationWarning={true}>
+                                <SelectTrigger className="rounded-lg h-auto min-h-11 bg-white shadow-sm border-stone-200 text-xs [&>span]:whitespace-nowrap" suppressHydrationWarning={true}>
                                     <SelectValue placeholder="Sort by: Popular" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -972,6 +972,7 @@ export default ProductSection;
     
 
     
+
 
 
 
