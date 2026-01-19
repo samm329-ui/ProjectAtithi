@@ -22,6 +22,7 @@ import CartSheet from "@/components/cart-sheet";
 import { MenuDialog } from "@/components/menu-dialog";
 import MobileHeroCarousel from "@/components/mobile-hero-carousel";
 import { MobileBottomNav } from "@/components/mobile-bottom-nav";
+import BannerCarousel from "@/components/banner-carousel";
 
 export type CartItem = MenuItem & { quantity: number };
 
@@ -181,18 +182,12 @@ export default function Home() {
             <div className="md:hidden">
               <div className="px-4">
                   <div className="mt-4">
-                    <Image
-                      src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(5).png"
-                      alt="Special Offer Banner"
-                      width={600}
-                      height={200}
-                      className="w-full h-auto rounded-lg"
-                    />
+                    <BannerCarousel />
                   </div>
                   <h1 className="text-2xl font-semibold tracking-[0.2px] text-foreground mt-4">Our Best Seller</h1>
-                  <MobileHeroCarousel onCardClick={handleCardClick} />
+                  <MobileHeroCarousel onCardClick={handleCardClick} onAddToCart={handleAddToCart} />
               </div>
-              <div className="mx-4 mt-0 mb-4 border-b border-border"></div>
+              <div className="mx-4 mt-8 mb-4 border-b border-border"></div>
             </div>
             <div className="hidden md:block">
               <MenuSection />
