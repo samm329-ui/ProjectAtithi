@@ -214,7 +214,9 @@ export default function Home() {
             <ReviewsSection reviews={reviews} />
             <WriteReviewSection onReviewSubmit={handleReviewSubmit} />
             <ContactSection />
-            <RecommendationSection />
+            <div className="hidden md:block">
+              <RecommendationSection />
+            </div>
           </main>
           <Footer />
         </div>
