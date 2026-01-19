@@ -167,10 +167,10 @@
   line-height: 28px;
   padding: 0 1rem;
   padding-left: 2.5rem;
-  border: 2px solid transparent;
+  border: 1px solid hsl(var(--border));
   border-radius: 8px;
   outline: none;
-  background-color: #f3f3f4;
+  background-color: #fff;
   color: #0d0c22;
   transition: 0.3s ease;
 }
