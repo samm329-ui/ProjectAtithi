@@ -22,7 +22,6 @@ import CartSheet from "@/components/cart-sheet";
 import { MenuDialog } from "@/components/menu-dialog";
 import MobileHeroCarousel from "@/components/mobile-hero-carousel";
 import { MobileBottomNav } from "@/components/mobile-bottom-nav";
-import BannerCarousel from "@/components/banner-carousel";
 
 export type CartItem = MenuItem & { quantity: number };
 
@@ -181,9 +180,6 @@ export default function Home() {
             </div>
             <div className="md:hidden">
               <div className="px-4">
-                  <div className="mt-4">
-                    <BannerCarousel />
-                  </div>
                   <h1 className="text-2xl font-semibold tracking-[0.2px] text-foreground mt-4">Our Best Seller</h1>
                   <MobileHeroCarousel onCardClick={handleCardClick} onAddToCart={handleAddToCart} />
               </div>

@@ -255,34 +255,3 @@
 .animated-social-container.email .icon-hover {
   background: linear-gradient(180deg, rgba(129, 34, 144, 1) 0%, rgba(77, 34, 124, 1) 91%);
 }
-
-/* Banner Fade Carousel */
-.banner-fade-carousel {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 2 / 1;
-}
-
-.banner-fade-carousel__container {
-  display: flex;
-  height: 100%;
-}
-
-.banner-fade-carousel__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-  z-index: 1;
-}
-
-.banner-fade-carousel__slide.is-selected {
-  opacity: 1;
-  z-index: 2;
-}
