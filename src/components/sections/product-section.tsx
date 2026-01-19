@@ -46,6 +46,7 @@ const CategoryProductDialog = ({
     onAddToCart,
     onRemoveFromCart,
     onCardClick,
+    onCartClick,
 }: {
     isOpen: boolean;
     onOpenChange: (open: boolean) => void;
@@ -54,19 +55,32 @@ const CategoryProductDialog = ({
     onAddToCart: (item: MenuItem) => void;
     onRemoveFromCart: (itemName: string) => void;
     onCardClick: (item: MenuItem) => void;
+    onCartClick: () => void;
 }) => {
     if (!category) return null;
+    const totalCartItems = cart.reduce((total, item) => total + item.quantity, 0);
 
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
             <DialogContent className="p-0 w-full h-full max-w-full rounded-none border-0 flex flex-col top-0 left-0 translate-x-0 translate-y-0 data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=closed]:zoom-out-90 data-[state=closed]:animate-out">
                 <DialogHeader className="p-4 border-b flex-row items-center justify-between sticky top-0 bg-background/95 backdrop-blur-sm z-10">
                     <DialogTitle className="text-xl">{category.name}</DialogTitle>
-                     <DialogClose asChild>
-                        <Button variant="ghost" size="icon">
-                            <X className="h-5 w-5" />
+                    <div className="flex items-center gap-2">
+                        <Button variant="ghost" size="icon" className="relative" onClick={onCartClick}>
+                            <ShoppingCart className="h-5 w-5" />
+                            {totalCartItems > 0 && (
+                                <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 rounded-full flex items-center justify-center p-1 text-xs">
+                                    {totalCartItems}
+                                </Badge>
+                            )}
+                            <span className="sr-only">View Cart</span>
                         </Button>
-                    </DialogClose>
+                        <DialogClose asChild>
+                            <Button variant="ghost" size="icon">
+                                <X className="h-5 w-5" />
+                            </Button>
+                        </DialogClose>
+                    </div>
                 </DialogHeader>
                 <ScrollArea className="flex-grow bg-background">
                     <div className="p-4 space-y-4">
@@ -778,7 +792,7 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
 };
 
 
-const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onCardClick, onRate, searchQuery }: {
+const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onCardClick, onRate, searchQuery, onCartClick }: {
   allMenuItems: { name: string, items: MenuItem[] }[];
   cart: CartItem[];
   onAddToCart: (item: MenuItem) => void;
@@ -786,6 +800,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
   onCardClick: (item: MenuItem) => void;
   onRate: (itemName: string, rating: number) => void;
   searchQuery?: string;
+  onCartClick: () => void;
 }) => {
     const [selectedCategory, setSelectedCategory] = React.useState<{ name: string; items: MenuItem[] } | null>(null);
     const [isCategoryDialogOpen, setIsCategoryDialogOpen] = React.useState(false);
@@ -921,7 +936,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                         </div>
                     </div>
                     <div className='mx-4'>
-                        <h2 className="text-xl font-semibold text-foreground mt-4">Categories</h2>
+                        <h2 className="text-xl font-semibold text-foreground mt-4 mx-4">Categories</h2>
                          <div className="mt-4 border-b border-border"></div>
                     </div>
                      <div className="grid grid-cols-2 gap-4 px-4 pt-4">
@@ -965,6 +980,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                         onAddToCart={onAddToCart}
                         onRemoveFromCart={onRemoveFromCart}
                         onCardClick={onCardClick}
+                        onCartClick={onCartClick}
                     />
                 </div>
             </>

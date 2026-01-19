@@ -210,6 +210,7 @@ export default function Home() {
                 onCardClick={handleCardClick}
                 onRate={handleRatingChange}
                 searchQuery={searchQuery}
+                onCartClick={() => setIsCartSheetOpen(true)}
             />
 
             <ReviewsSection reviews={reviews} />
