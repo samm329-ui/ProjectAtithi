@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { config } from './config';
+import { config } from '@/lib/utils';
 import { menuData } from '@/lib/menu';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:9002';

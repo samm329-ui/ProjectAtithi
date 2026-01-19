@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { config, SectionData } from "@/app/config";
+import { config, SectionData } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import { InstagramIcon, GoogleMapsIcon, CallIcon, WhatsappIcon } from "@/components/icons";

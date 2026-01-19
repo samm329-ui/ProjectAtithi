@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { config } from "@/app/config";
+import { config } from "@/lib/utils";
 import Link from "next/link";
 import { InstagramIcon, GoogleMapsIcon, CallIcon } from "@/components/icons";
 import { ComingSoonDialog } from "@/components/coming-soon-dialog";

@@ -16,7 +16,7 @@ const carouselImageIds = [
   'bestseller-chicken-biryani',
   'Paneer Tikka (6 pcs)',
   'Garlic Naan',
-  'Mutton Kasa',
+  'Egg Chicken Roll',
 ];
 
 type MobileHeroCarouselProps = {

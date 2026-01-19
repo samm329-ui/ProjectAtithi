@@ -1,6 +1,6 @@
 "use client";
 
-import { config } from "@/app/config";
+import { config } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
 type LoadingScreenProps = {

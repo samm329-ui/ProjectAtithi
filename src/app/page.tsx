@@ -14,7 +14,7 @@ import Footer from "@/components/footer";
 import { useToast } from "@/hooks/use-toast";
 import { type MenuItem, menuData } from "@/lib/menu";
 import { ProductDetailDialog } from "@/components/sections/product-section";
-import { config, type Review } from "@/app/config";
+import { config, type Review } from "@/lib/utils";
 import WriteReviewSection from "@/components/sections/write-review-section";
 import ContactSection from "@/components/sections/contact-section";
 import MobileSearchHeader from "@/components/mobile-search-header";
