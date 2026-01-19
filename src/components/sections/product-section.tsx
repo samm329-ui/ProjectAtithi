@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import * as React from 'react';
@@ -708,7 +709,7 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
     if (isFeatured) {
         // Large Card Layout (like Paneer Tikka)
         return (
-            <div className="bg-white rounded-xl shadow-product" onClick={() => onCardClick(item)}>
+            <div className="w-full overflow-hidden bg-white rounded-xl shadow-product" onClick={() => onCardClick(item)}>
                 <div className="relative aspect-video w-full">
                     {imageData ? <Image src={imageData.imageUrl} alt={item.description} fill data-ai-hint={imageData.imageHint} className="object-cover rounded-t-xl" /> : <div className="bg-muted w-full h-full rounded-t-xl"/>}
                 </div>
@@ -727,7 +728,7 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
                         <span className="text-sm text-[#6E6E6E]">({item.ratingsCount})</span>
                     </div>
                     <p className="text-sm text-[#6E6E6E] mb-4 line-clamp-2">{item.description}</p>
-                    <div className="flex justify-end items-center gap-2">
+                    <div className="flex justify-end items-center gap-2 flex-shrink-0">
                         <Button asChild variant="outline" className="h-10">
                             <Link href="tel:8250104315" onClick={(e) => e.stopPropagation()}>
                                 <Phone className="mr-2 h-4 w-4" /> Call to Order
@@ -742,7 +743,7 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
 
     // Standard Card Layout
     return (
-        <div className="bg-white rounded-xl shadow-product p-3 flex gap-3" onClick={() => onCardClick(item)}>
+        <div className="w-full overflow-hidden bg-white rounded-xl shadow-product p-3 flex gap-3" onClick={() => onCardClick(item)}>
             <div className="relative w-24 h-24 flex-shrink-0">
                 {imageData ? <Image src={imageData.imageUrl} alt={item.description} fill data-ai-hint={imageData.imageHint} className="object-cover rounded-lg" /> : <div className="bg-muted w-full h-full rounded-lg"/>}
             </div>
