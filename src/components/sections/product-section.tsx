@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from 'react';
@@ -919,8 +920,8 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                             </div>
                         </div>
                     </div>
-                    <div className='px-4'>
-                        <h2 className="text-xl font-semibold text-foreground">Categories</h2>
+                    <div className='mx-4'>
+                        <h2 className="text-xl font-semibold text-foreground mt-4">Categories</h2>
                          <div className="mt-4 border-b border-border"></div>
                     </div>
                      <div className="grid grid-cols-2 gap-4 px-4 pt-4">
@@ -974,3 +975,4 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 };
 
 export default ProductSection;
+
