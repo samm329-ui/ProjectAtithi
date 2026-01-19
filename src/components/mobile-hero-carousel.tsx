@@ -21,11 +21,10 @@ const carouselImageIds = [
 
 type MobileHeroCarouselProps = {
   onCardClick: (item: MenuItem) => void;
-  onAddToCart: (item: MenuItem) => void;
 };
 
 
-const MobileHeroCarousel = ({ onCardClick, onAddToCart }: MobileHeroCarouselProps) => {
+const MobileHeroCarousel = ({ onCardClick }: MobileHeroCarouselProps) => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   );

@@ -181,7 +181,7 @@ export default function Home() {
             <div className="md:hidden">
               <div className="px-4">
                   <h1 className="text-2xl font-semibold tracking-[0.2px] text-foreground mt-4">Our Best Seller</h1>
-                  <MobileHeroCarousel onAddToCart={handleAddToCart} onCardClick={handleCardClick} />
+                  <MobileHeroCarousel onCardClick={handleCardClick} />
               </div>
               <div className="mx-4 mt-0 mb-4 border-b border-border"></div>
             </div>
