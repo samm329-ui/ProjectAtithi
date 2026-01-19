@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import * as React from 'react';
@@ -382,6 +380,7 @@ const ProductRow = React.memo(({
     onCardClick: (item: MenuItem) => void,
 }) => {
     const [api, setLocalApi] = React.useState<CarouselApi>();
+    const [ratings, setRatings] = React.useState<{ [key: string]: number }>({});
     const scrollIntervalRef = React.useRef<NodeJS.Timeout | null>(null);
 
     React.useEffect(() => {
@@ -743,9 +742,9 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
 
     // Standard Card Layout
     return (
-        <div className="w-full overflow-hidden bg-white rounded-xl shadow-product p-3 grid grid-cols-[auto_1fr] gap-3 items-center" onClick={() => onCardClick(item)}>
+        <div className="grid grid-cols-[80px_1fr] gap-3 w-full overflow-hidden bg-white rounded-xl shadow-product p-3 items-center" onClick={() => onCardClick(item)}>
             {/* Column 1: Image */}
-            <div className="relative w-24 h-24 flex-shrink-0">
+            <div className="relative w-20 h-20 flex-shrink-0">
                 {imageData ? <Image src={imageData.imageUrl} alt={item.description} fill data-ai-hint={imageData.imageHint} className="object-cover rounded-lg" /> : <div className="bg-muted w-full h-full rounded-lg"/>}
             </div>
             
@@ -829,7 +828,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
       <div className="container mx-auto px-4">
         
         {searchQuery ? (
-             <div className="md:hidden p-4">
+             <div className="md:hidden px-4">
                 <h2 className="text-xl font-bold text-foreground mb-4">Search Results for "{searchQuery}"</h2>
                 <ScrollArea className="h-[70vh]">
                     <div className="space-y-4">
@@ -891,7 +890,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                             }}
                             suppressHydrationWarning={true}
                             >
-                                <SelectTrigger className="rounded-lg h-auto min-h-11 bg-white shadow-sm border-stone-200 text-xs [&>span]:whitespace-nowrap" suppressHydrationWarning={true}>
+                                <SelectTrigger className="h-auto min-h-11 bg-white shadow-sm border-stone-200 text-xs [&>span]:whitespace-nowrap" suppressHydrationWarning={true}>
                                     <SelectValue placeholder="All Categories" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -907,7 +906,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                                 </SelectContent>
                             </Select>
                             <Select defaultValue="popular" suppressHydrationWarning={true}>
-                                <SelectTrigger className="rounded-lg h-auto min-h-11 bg-white shadow-sm border-stone-200 text-xs [&>span]:whitespace-nowrap" suppressHydrationWarning={true}>
+                                <SelectTrigger className="h-auto min-h-11 bg-white shadow-sm border-stone-200 text-xs [&>span]:whitespace-nowrap" suppressHydrationWarning={true}>
                                     <SelectValue placeholder="Sort by: Popular" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -970,9 +969,3 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 export default ProductSection;
 
     
-
-    
-
-
-
-
