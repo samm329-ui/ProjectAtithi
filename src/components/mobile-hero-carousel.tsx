@@ -27,7 +27,7 @@ type MobileHeroCarouselProps = {
 
 const MobileHeroCarousel = ({ onCardClick, onAddToCart }: MobileHeroCarouselProps) => {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: false })
   );
 
   const carouselImages = carouselImageIds
@@ -48,8 +48,6 @@ const MobileHeroCarousel = ({ onCardClick, onAddToCart }: MobileHeroCarouselProp
       <Carousel
         plugins={[plugin.current]}
         className="w-full"
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
         opts={{
           align: 'start',
           loop: true,
