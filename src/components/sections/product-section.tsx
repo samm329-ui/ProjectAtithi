@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import * as React from 'react';
@@ -30,7 +29,7 @@ import {
 import { cn } from '@/lib/utils';
 import { Badge } from "@/components/ui/badge";
 import { Button } from '@/components/ui/button';
-import { Phone, Star, Filter, ShoppingCart, Plus, Minus, ChevronLeft, ChevronRight, Menu, ChevronDown } from 'lucide-react';
+import { Phone, Star, Filter, ShoppingCart, Plus, Minus, ChevronLeft, ChevronRight, Menu, ChevronDown, X } from 'lucide-react';
 import Link from 'next/link';
 import { type CartItem } from '@/app/page';
 import { useToast } from '@/hooks/use-toast';
@@ -59,9 +58,14 @@ const CategoryProductDialog = ({
 
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
-            <DialogContent className="p-0 w-full h-full max-w-full rounded-none border-0 flex flex-col top-0 left-0 translate-x-0 translate-y-0 data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=closed]:zoom-out-90">
-                <DialogHeader className="p-4 border-b flex-row items-center sticky top-0 bg-background/95 backdrop-blur-sm z-10">
+            <DialogContent className="p-0 w-full h-full max-w-full rounded-none border-0 flex flex-col top-0 left-0 translate-x-0 translate-y-0 data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=closed]:zoom-out-90 data-[state=closed]:animate-out">
+                <DialogHeader className="p-4 border-b flex-row items-center justify-between sticky top-0 bg-background/95 backdrop-blur-sm z-10">
                     <DialogTitle className="text-xl">{category.name}</DialogTitle>
+                     <DialogClose asChild>
+                        <Button variant="ghost" size="icon">
+                            <X className="h-5 w-5" />
+                        </Button>
+                    </DialogClose>
                 </DialogHeader>
                 <ScrollArea className="flex-grow bg-[#F6EFE8]">
                     <div className="p-4 space-y-4">
@@ -248,7 +252,7 @@ export const ProductDetailDialog = ({
 
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
-            <DialogContent className="p-0 w-full h-full max-w-full rounded-none border-0 flex flex-col top-0 left-0 translate-x-0 translate-y-0 md:flex-row md:h-auto md:max-h-[90vh] md:max-w-4xl md:rounded-lg md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=closed]:zoom-out-90">
+            <DialogContent className="p-0 w-full h-full max-w-full rounded-none border-0 flex flex-col top-0 left-0 translate-x-0 translate-y-0 md:flex-row md:h-auto md:max-h-[90vh] md:max-w-4xl md:rounded-lg md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=closed]:zoom-out-90 data-[state=closed]:animate-out">
                 {/* Image Section */}
                 <div className="w-full md:w-1/2 relative md:min-h-[500px] h-[40%] md:h-auto flex-shrink-0">
                     <div className="absolute inset-0">
@@ -905,10 +909,10 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                      <div className="p-4 bg-[#F6EFE8]">
                         <div className="flex gap-4">
                             <Select onValueChange={(value) => {
-                                const el = document.getElementById(value);
-                                if (el) {
-                                    const y = el.getBoundingClientRect().top + window.scrollY - 100;
-                                    window.scrollTo({ top: y, behavior: 'smooth' });
+                                if (value === 'all') return;
+                                const category = allMenuItems.find(c => c.name.toLowerCase().replace(/\s+/g, '-') === value);
+                                if (category) {
+                                    handleOpenCategoryDialog(category);
                                 }
                             }}>
                                 <SelectTrigger className="w-1/2 rounded-full h-11 bg-white shadow-sm border-stone-200">
@@ -937,15 +941,15 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                             </Select>
                         </div>
                     </div>
-                     <div className="grid grid-cols-2 gap-4">
+                     <div className="grid grid-cols-2 gap-4 px-4">
                         {allMenuItems.map((category) => {
                              const firstItem = category.items[0];
                              const imageData = firstItem ? PlaceHolderImages.find(img => img.id === firstItem.name) : null;
                              const itemCount = category.items.length;
                         
                             return (
-                                <button key={category.name} onClick={() => handleOpenCategoryDialog(category)} className="border-0 bg-white rounded-xl shadow-product overflow-hidden text-left w-full focus:outline-none focus:ring-2 focus:ring-primary ring-offset-2">
-                                    <div className="relative w-full aspect-square">
+                                <button key={category.name} onClick={() => handleOpenCategoryDialog(category)} className="border-0 bg-white rounded-xl shadow-product overflow-hidden text-left w-full focus:outline-none focus:ring-2 focus:ring-primary ring-offset-2 aspect-square">
+                                    <div className="relative w-full h-full">
                                         <div className="absolute inset-0">
                                             {imageData ? (
                                                 <Image
@@ -960,7 +964,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                                                 </div>
                                             )}
                                         </div>
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                                         <div className="relative h-full flex flex-col justify-end p-3">
                                             <h3 className="font-semibold text-base text-white drop-shadow-md">{category.name}</h3>
                                             <p className="text-xs text-white/90 drop-shadow-md">{itemCount} items</p>
@@ -989,7 +993,4 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 
 export default ProductSection;
 
-
-
-
-
+    
