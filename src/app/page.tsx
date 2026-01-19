@@ -144,14 +144,6 @@ export default function Home() {
 };
 
   useEffect(() => {
-    // Manually set a cart for screenshot purposes, should be removed for production
-    if (cart.length === 0) {
-        const item1 = menuData[0].items[0]; // Chana Masala
-        const item2 = menuData[1].items[2]; // Chicken Roll
-        if(item1 && item2) {
-             setCart([{ ...item1, quantity: 1 }, { ...item2, quantity: 1 }]);
-        }
-    }
     setIsAppLoading(false);
   }, []);
   
