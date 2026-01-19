@@ -444,6 +444,7 @@ const ProductRow = React.memo(({
                                                   fill
                                                   data-ai-hint={imageData.imageHint}
                                                   className="object-cover rounded-t-[30px]"
+                                                  priority={index === 0}
                                               />
                                           ) : (
                                               <div className="w-full h-full bg-secondary rounded-t-[30px] flex items-center justify-center">

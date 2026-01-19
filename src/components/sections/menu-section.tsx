@@ -81,6 +81,7 @@ const MenuSection = () => {
                                                     fill
                                                     data-ai-hint={imageData.imageHint}
                                                     className="object-contain rounded-lg shadow-lg"
+                                                    priority={index < 5}
                                                 />
                                             )}
                                         </div>

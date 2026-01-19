@@ -63,7 +63,7 @@ const MobileHeroCarousel = ({ onCardClick }: MobileHeroCarouselProps) => {
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
-                    priority={index === 0}
+                    priority
                   />
                 )}
               </div>

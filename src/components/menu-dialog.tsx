@@ -34,7 +34,7 @@ export function MenuDialog({ isOpen, onOpenChange }: { isOpen: boolean; onOpenCh
         <div className="flex-grow min-h-0">
           <ScrollArea className="h-full">
             <div className="space-y-8 pr-6">
-              {menuCards.map((card) => {
+              {menuCards.map((card, index) => {
                 const imageData = PlaceHolderImages.find(img => img.id === card.id);
                 return (
                   <div key={card.id} className="w-full">
@@ -46,6 +46,7 @@ export function MenuDialog({ isOpen, onOpenChange }: { isOpen: boolean; onOpenCh
                           fill
                           data-ai-hint={imageData.imageHint}
                           className="object-contain"
+                          priority={index === 0}
                         />
                       ) : (
                         <div className="flex items-center justify-center h-full bg-muted">

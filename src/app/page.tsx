@@ -187,6 +187,7 @@ export default function Home() {
                             width={1200}
                             height={400}
                             className="object-cover w-full"
+                            priority
                         />
                     </div>
                   <h1 className="text-2xl font-semibold tracking-[0.2px] text-foreground mt-4">Our Best Seller</h1>

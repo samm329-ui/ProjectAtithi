@@ -44,6 +44,7 @@ const BestSellerSection = () => {
                                             height={600}
                                             data-ai-hint={imageData.imageHint}
                                             className="rounded-lg object-cover shadow-2xl"
+                                            priority
                                         />
                                     )}
                                 </div>
