@@ -32,7 +32,7 @@ const MobileSearchHeader = ({ onSearch, onCartClick, cartCount }: MobileSearchHe
                         </Link>
                     </div>
 
-                    <div className="relative flex-grow">
+                    <div className="relative flex-grow-0 w-32">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/70" />
                         <Input
                             type="search"
