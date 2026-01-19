@@ -24,8 +24,8 @@ const MobileSearchHeader = ({ onSearch, onCartClick, cartCount }: MobileSearchHe
                             <Image
                                 src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/ChatGPT%20Image%20Jan%2020,%202026,%2012_52_38%20AM.png"
                                 alt="Atithi Logo"
-                                width={120}
-                                height={40}
+                                width={100}
+                                height={34}
                                 className="object-contain"
                                 priority
                             />
