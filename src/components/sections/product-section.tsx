@@ -885,7 +885,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                             </Select>
                         </div>
                     </div>
-                    <Accordion type="single" collapsible className="w-full space-y-4" defaultValue="item-0">
+                    <Accordion type="single" collapsible className="grid grid-cols-2 gap-4" defaultValue="item-0">
                         {allMenuItems.map((category, index) => {
                              const firstItem = category.items[0];
                              const imageData = firstItem ? PlaceHolderImages.find(img => img.id === firstItem.name) : null;
@@ -893,8 +893,8 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                         
                             return (
                                 <AccordionItem value={`item-${index}`} key={category.name} id={category.name.toLowerCase().replace(/\s+/g, '-')} className="border-0 bg-white rounded-xl shadow-product overflow-hidden">
-                                     <AccordionTrigger className="p-0 text-lg font-bold hover:no-underline w-full [&>svg]:h-6 [&>svg]:w-6 [&>svg]:absolute [&>svg]:top-4 [&>svg]:right-4 [&>svg]:text-white [&>svg]:z-10">
-                                        <div className="relative w-full aspect-[16/7] text-left">
+                                     <AccordionTrigger className="p-0 text-lg font-bold hover:no-underline w-full [&[data-state=open]>svg]:rotate-180 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:absolute [&>svg]:top-2 [&>svg]:right-2 [&>svg]:text-white [&>svg]:z-10">
+                                        <div className="relative w-full aspect-square text-left">
                                             <div className="absolute inset-0">
                                                 {imageData ? (
                                                     <Image
@@ -910,9 +910,9 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                                                 )}
                                             </div>
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                                            <div className="relative h-full flex flex-col justify-end p-4">
-                                                <h3 className="font-semibold text-xl text-white drop-shadow-md">{category.name}</h3>
-                                                <p className="text-sm text-white/90 drop-shadow-md">{itemCount} items</p>
+                                            <div className="relative h-full flex flex-col justify-end p-3">
+                                                <h3 className="font-semibold text-base text-white drop-shadow-md">{category.name}</h3>
+                                                <p className="text-xs text-white/90 drop-shadow-md">{itemCount} items</p>
                                             </div>
                                         </div>
                                     </AccordionTrigger>
@@ -943,4 +943,5 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 };
 
 export default ProductSection;
+
 
