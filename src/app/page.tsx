@@ -177,8 +177,12 @@ export default function Home() {
             <div className="hidden md:block">
               <HeroSection />
             </div>
-            <MenuSection />
-            <BestSellerSection />
+            <div className="hidden md:block">
+              <MenuSection />
+            </div>
+            <div className="hidden md:block">
+              <BestSellerSection />
+            </div>
             
             <ProductSection 
                 allMenuItems={allMenuItems}
