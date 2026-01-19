@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { config, SectionData } from "@/app/config";
@@ -23,9 +23,6 @@ type HeroSectionProps = {};
 const HeroSection = ({}: HeroSectionProps) => {
   const [currentSection] = useState<SectionData>(config.sections[0]);
   
-  useEffect(() => {
-    document.documentElement.style.setProperty('--dynamic-accent', currentSection.themeColor);
-  }, [currentSection]);
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden">
@@ -50,7 +47,7 @@ const HeroSection = ({}: HeroSectionProps) => {
                 <Button size="lg" variant="outline" className="border-2 border-white/50 bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm" asChild>
                   <Link href="#menu">Explore Menu</Link>
                 </Button>
-                <Button size="lg" className="text-white backdrop-blur-sm bg-black/20 hover:bg-black/30" style={{backgroundColor: "var(--dynamic-accent, #C9A24D)"}} asChild>
+                <Button size="lg" className="text-white backdrop-blur-sm bg-black/20 hover:bg-black/30" style={{backgroundColor: currentSection.themeColor}} asChild>
                   <Link href="tel:8250104315">
                     <Phone className="mr-2 h-5 w-5" /> Call to Book
                   </Link>
