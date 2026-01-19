@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import {
@@ -15,13 +14,13 @@ const carouselImageIds = [
   'bestseller-butter-chicken',
   'bestseller-chicken-biryani',
   'Paneer Tikka (6 pcs)',
-  'Kadai Chicken',
+  'Garlic Naan',
   'Mutton Kasa',
 ];
 
 const MobileHeroCarousel = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: true })
   );
 
   const carouselImages = carouselImageIds
@@ -40,19 +39,20 @@ const MobileHeroCarousel = () => {
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
         opts={{
+          align: 'start',
           loop: true,
         }}
       >
-        <CarouselContent>
+        <CarouselContent className="-ml-4">
           {carouselImages.map((img, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem key={index} className="basis-2/3 pl-4">
               <div className="overflow-hidden rounded-xl aspect-[191/100] relative">
                 {img && (
                   <Image
                     src={img.imageUrl}
                     alt={img.description}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 70vw, 50vw"
                     className="object-cover"
                     priority={index === 0}
                   />
