@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from 'react';
@@ -713,8 +714,10 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
                 </div>
                 <div className="p-4">
                     <div className="flex justify-between items-start mb-1">
-                        <h3 className="font-semibold text-lg text-[#2A2A2A]">{item.name}</h3>
-                        <p className="font-bold text-lg text-[#2A2A2A] ml-2">Rs. {item.price}</p>
+                        <div className="flex-grow min-w-0 pr-2">
+                           <h3 className="font-semibold text-lg text-[#2A2A2A] truncate">{item.name}</h3>
+                        </div>
+                        <p className="font-bold text-lg text-[#2A2A2A] ml-2 flex-shrink-0">Rs. {item.price}</p>
                     </div>
                     <div className="flex items-center gap-2 mb-2">
                         <div className="flex items-center gap-0.5">
@@ -723,7 +726,7 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
                         </div>
                         <span className="text-sm text-[#6E6E6E]">({item.ratingsCount})</span>
                     </div>
-                    <p className="text-sm text-[#6E6E6E] mb-4 line-clamp-1">{item.description}</p>
+                    <p className="text-sm text-[#6E6E6E] mb-4 line-clamp-2">{item.description}</p>
                     <div className="flex justify-end items-center gap-2">
                         <Button asChild variant="outline" className="h-10">
                             <Link href="tel:8250104315" onClick={(e) => e.stopPropagation()}>
@@ -754,8 +757,8 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
                 </div>
                 <p className="text-xs text-[#6E6E6E] line-clamp-1 flex-grow">{item.description}</p>
                 <div className="flex justify-between items-end mt-2">
-                    <p className="font-bold text-base text-[#2A2A2A]">Rs. {item.price}</p>
-                    <div className="flex items-center gap-2">
+                    <p className="font-bold text-base text-[#2A2A2A] pr-2">Rs. {item.price}</p>
+                    <div className="flex items-center gap-2 flex-shrink-0">
                         <Button asChild variant="outline" size="icon" className="h-9 w-9">
                            <Link href="tel:8250104315" onClick={(e) => e.stopPropagation()}>
                                 <Phone className="h-4 w-4" />
@@ -824,9 +827,9 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
         {searchQuery ? (
              <div>
                 <div className='md:hidden'>
-                    <h2 className="text-xl font-bold text-foreground mb-4">Search Results for "{searchQuery}"</h2>
+                    <h2 className="text-xl font-bold text-foreground mb-4 px-4">Search Results for "{searchQuery}"</h2>
                     <ScrollArea className="h-[70vh]">
-                        <div className="space-y-4 pr-4">
+                        <div className="space-y-4 p-4">
                             {searchResults.length > 0 ? (
                                 searchResults.map(item => (
                                     <MobileProductCard 
@@ -910,7 +913,6 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                         <div className="flex gap-4">
                             <Select onValueChange={(value) => {
                                 if (value === 'all') {
-                                    // When 'All Categories' is selected, do nothing, just reset the view.
                                     return;
                                 }
                                 const category = allMenuItems.find(c => c.name.toLowerCase().replace(/\s+/g, '-') === value);
@@ -997,5 +999,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 };
 
 export default ProductSection;
+
+    
 
     
