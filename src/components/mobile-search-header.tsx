@@ -3,7 +3,6 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search, ShoppingCart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -32,12 +31,12 @@ const MobileSearchHeader = ({ onSearch, onCartClick, cartCount }: MobileSearchHe
                         </Link>
                     </div>
 
-                    <div className="relative flex-grow-0 w-32">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/70" />
-                        <Input
+                    <div className="container-input">
+                        <Search className="h-5 w-5 text-gray-500" />
+                        <input
                             type="search"
                             placeholder="Search"
-                            className="w-full pl-12 pr-4 h-12 bg-white border-none shadow-search"
+                            className="input"
                             onChange={(e) => onSearch(e.target.value)}
                             suppressHydrationWarning
                         />
