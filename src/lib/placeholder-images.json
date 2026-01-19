@@ -3,216 +3,216 @@
     {
       "id": "menu-card-1",
       "description": "Atithi Menu Card Page 1",
-      "imageUrl": "https://yryoxzexvuhimvezdwle.supabase.co/storage/v1/object/public/asset/menu%201.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/menu-card-1.png",
       "imageHint": "menu page"
     },
     {
       "id": "menu-card-2",
       "description": "Atithi Menu Card Page 2",
-      "imageUrl": "https://yryoxzexvuhimvezdwle.supabase.co/storage/v1/object/public/asset/menu%202.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/menu-card-2.png",
       "imageHint": "menu page"
     },
     {
       "id": "menu-card-3",
       "description": "Atithi Menu Card Page 3",
-      "imageUrl": "https://yryoxzexvuhimvezdwle.supabase.co/storage/v1/object/public/asset/menu%203.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/menu-card-3.png",
       "imageHint": "menu page"
     },
     {
       "id": "menu-card-4",
       "description": "Atithi Menu Card Page 4",
-      "imageUrl": "https://yryoxzexvuhimvezdwle.supabase.co/storage/v1/object/public/asset/menu%204.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/menu-card-4.png",
       "imageHint": "menu page"
     },
     {
       "id": "menu-card-5",
       "description": "Atithi Menu Card Page 5",
-      "imageUrl": "https://yryoxzexvuhimvezdwle.supabase.co/storage/v1/object/public/asset/menu%205.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/menu-card-5.png",
       "imageHint": "menu page"
     },
     {
       "id": "bestseller-butter-chicken",
       "description": "Butter Chicken",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(1).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/bestseller-butter-chicken.png",
       "imageHint": "butter chicken"
     },
     {
       "id": "bestseller-chicken-biryani",
       "description": "Chicken Biryani",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(2).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/bestseller-chicken-biryani.png",
       "imageHint": "chicken biryani"
     },
     {
       "id": "Chana Masala",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(3).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chana-Masala.png",
       "description": "A classic North Indian curry with chickpeas in a spicy, tangy tomato-based sauce.",
       "imageHint": "chickpea curry"
     },
     {
       "id": "Mixed Veg",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(4).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mixed-Veg.png",
       "description": "A medley of seasonal vegetables cooked in a rich and aromatic gravy.",
       "imageHint": "vegetable curry"
     },
     {
       "id": "Chana Paneer",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(5).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chana-Paneer.png",
       "description": "A delightful combination of chickpeas and soft paneer cubes in a flavorful curry.",
       "imageHint": "paneer curry"
     },
     {
       "id": "Veg Tarka",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(6).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Veg-Tarka.png",
       "description": "Yellow lentils tempered with aromatic spices, a comforting and hearty dish.",
       "imageHint": "lentil soup"
     },
     {
       "id": "Paneer Masala",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(7).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Paneer-Masala.png",
       "description": "Soft paneer cubes simmered in a spiced tomato and onion gravy.",
       "imageHint": "paneer dish"
     },
     {
       "id": "Paneer Butter Masala",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(8).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Paneer-Butter-Masala.png",
       "description": "A crowd favorite! Creamy and rich curry with paneer in a buttery tomato sauce.",
       "imageHint": "paneer butter"
     },
     {
       "id": "Dal Makhani",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(9).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Dal-Makhani.png",
       "description": "Black lentils and kidney beans slow-cooked to perfection in a creamy, buttery sauce.",
       "imageHint": "lentil dish"
     },
     {
       "id": "Matar Paneer",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(10).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Matar-Paneer.png",
       "description": "A wholesome curry of paneer and green peas in a tomato-based gravy.",
       "imageHint": "paneer peas"
     },
     {
       "id": "Paneer Do Pyaza",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(11).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Paneer-Do-Pyaza.png",
       "description": "A unique dish where paneer is cooked with a generous amount of onions.",
       "imageHint": "paneer onion"
     },
     {
       "id": "Kadai Paneer",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(12).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Kadai-Paneer.png",
       "description": "Paneer and bell peppers cooked in a spicy masala in a traditional Indian wok.",
       "imageHint": "kadai paneer"
     },
     {
       "id": "Paneer Jhal Fry",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(13).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Paneer-Jhal-Fry.png",
       "description": "Spicy and tangy stir-fried paneer with a mix of vibrant vegetables.",
       "imageHint": "spicy paneer"
     },
     {
       "id": "Paneer Bharta",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(14).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Paneer-Bharta.png",
       "description": "Mashed paneer cooked with onions, tomatoes, and spices. A flavorful scramble.",
       "imageHint": "scrambled paneer"
     },
     {
       "id": "Paneer Malai Kofta",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(15).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Paneer-Malai-Kofta.png",
       "description": "Deep-fried paneer and vegetable balls in a rich, creamy, and mildly sweet gravy.",
       "imageHint": "creamy kofta"
     },
     {
       "id": "Paneer Chilli",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(16).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Paneer-Chilli.png",
       "description": "An Indo-Chinese classic. Crispy paneer tossed in a spicy and tangy chili sauce.",
       "imageHint": "chilli paneer"
     },
     {
       "id": "Mushroom Chilli",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(17).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mushroom-Chilli.png",
       "description": "Crispy mushrooms stir-fried with bell peppers and onions in a spicy sauce.",
       "imageHint": "chilli mushroom"
     },
     {
       "id": "Mushroom Masala",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(18).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mushroom-Masala.png",
       "description": "Button mushrooms cooked in a savory and spiced onion-tomato gravy.",
       "imageHint": "mushroom curry"
     },
     {
       "id": "Mushroom Do Pyaza",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(19).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mushroom-Do-Pyaza.png",
       "description": "A flavorful mushroom curry with a prominent taste of sweet, crunchy onions.",
       "imageHint": "mushroom onion"
     },
     {
       "id": "Mushroom Butter Masala",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(20).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mushroom-Butter-Masala.png",
       "description": "Succulent mushrooms in a rich, creamy, and buttery tomato-based gravy.",
       "imageHint": "butter mushroom"
     },
     {
       "id": "Egg Roll",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(21).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Egg-Roll.png",
       "description": "A warm paratha wrapped around a savory egg filling with onions and sauces.",
       "imageHint": "egg wrap"
     },
     {
       "id": "Paneer Roll",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(22).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Paneer-Roll.png",
       "description": "Spiced paneer filling wrapped in a soft paratha. A perfect vegetarian snack.",
       "imageHint": "paneer wrap"
     },
     {
       "id": "Chicken Roll",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(23).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Roll.png",
       "description": "Juicy chicken chunks with sauces and onions, all rolled up in a paratha.",
       "imageHint": "chicken wrap"
     },
     {
       "id": "Egg Chicken Roll",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(24).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Egg-Chicken-Roll.png",
       "description": "The best of both worlds! A delicious roll with egg and chicken filling.",
       "imageHint": "chicken egg"
     },
     {
       "id": "Laccha Paratha",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(25).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Laccha-Paratha.png",
       "description": "Flaky, layered, and crispy flatbread, perfect to accompany any curry.",
       "imageHint": "indian bread"
     },
     {
       "id": "Veg Chowmein",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(26).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Veg-Chowmein.png",
       "description": "Stir-fried noodles packed with a variety of fresh vegetables and sauces.",
       "imageHint": "veg noodles"
     },
     {
       "id": "Egg Chowmein",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(27).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Egg-Chowmein.png",
       "description": "Classic chowmein with the added goodness of scrambled eggs.",
       "imageHint": "egg noodles"
     },
     {
       "id": "Chicken Chowmein",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(28).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Chowmein.png",
       "description": "A satisfying bowl of noodles stir-fried with tender chicken pieces.",
       "imageHint": "chicken noodles"
     },
     {
       "id": "Egg Chicken Chowmein",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(29).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Egg-Chicken-Chowmein.png",
       "description": "A hearty combination of chicken and egg tossed with noodles and veggies.",
       "imageHint": "mixed noodles"
     },
     {
       "id": "Mixed Chowmein",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(30).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mixed-Chowmein.png",
       "description": "The ultimate noodle dish with a mix of chicken, egg, and fresh vegetables.",
       "imageHint": "loaded noodles"
     },
     {
       "id": "Veg Fried Rice",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(31).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Veg-Fried-Rice.png",
       "description": "Fragrant rice stir-fried with a colorful assortment of vegetables.",
       "imageHint": "fried rice"
     },
@@ -230,13 +230,13 @@
     },
     {
       "id": "Egg Fried Rice",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(34).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Egg-Fried-Rice.png",
       "description": "A simple and delicious fried rice with scrambled eggs and seasonings.",
       "imageHint": "egg rice"
     },
     {
       "id": "Chicken Fried Rice",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(35).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Fried-Rice.png",
       "description": "Flavorful fried rice loaded with tender chicken and vegetables.",
       "imageHint": "chicken rice"
     },
@@ -248,7 +248,7 @@
     },
     {
       "id": "Mixed Fried Rice",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(37).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mixed-Fried-Rice.png",
       "description": "A loaded fried rice with chicken, egg, and shrimp for a fulfilling meal.",
       "imageHint": "seafood rice"
     },
@@ -314,31 +314,31 @@
     },
     {
       "id": "Chicken Kasa",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(48).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Kosha.png",
       "description": "A slow-cooked, spicy chicken curry with a thick, rich gravy.",
       "imageHint": "chicken curry"
     },
     {
       "id": "Chicken Do Pyaza",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(49).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Do-Pyaza.png",
       "description": "Tender chicken cooked with a generous amount of onions in a savory gravy.",
       "imageHint": "chicken onion"
     },
     {
       "id": "Kadai Chicken",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(50).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Kadai-Chicken.png",
       "description": "A popular North Indian dish of chicken and bell peppers in a spicy tomato gravy.",
       "imageHint": "kadai chicken"
     },
     {
       "id": "Chicken Jhal Fry",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(51).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Latpata.png",
       "description": "A fiery and tangy chicken stir-fry with a mix of spices and vegetables.",
       "imageHint": "spicy chicken"
     },
     {
       "id": "Chicken Masala",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1%20(52).jpeg",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Masala.png",
       "description": "A classic chicken curry with a perfectly balanced blend of aromatic spices.",
       "imageHint": "chicken masala"
     },
@@ -362,13 +362,13 @@
     },
     {
       "id": "Kurma Chicken",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/item_56.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Korma.png",
       "description": "A mild and creamy chicken curry cooked with yogurt, nuts, and spices.",
       "imageHint": "chicken korma"
     },
     {
       "id": "Chicken Bharta",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/item_57.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Bharta.png",
       "description": "Shredded chicken cooked in a rich and flavorful tomato and onion gravy.",
       "imageHint": "shredded chicken"
     },
@@ -380,25 +380,25 @@
     },
     {
       "id": "Mutton Kasa",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/item_59.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Kosha.png",
       "description": "A hearty and spicy slow-cooked mutton curry with a thick, flavorful gravy.",
       "imageHint": "mutton curry"
     },
     {
       "id": "Mutton Masala",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/item_60.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Masala.png",
       "description": "Tender mutton pieces cooked in a rich and aromatic spiced gravy.",
       "imageHint": "mutton masala"
     },
     {
       "id": "Mutton Do Pyaza",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/item_61.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Do-Pyaza.png",
       "description": "A delicious mutton curry loaded with sweet and savory onions.",
       "imageHint": "mutton onion"
     },
     {
       "id": "Mutton Kurma",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/item_62.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Korma.png",
       "description": "A royal and creamy mutton curry made with yogurt, nuts, and fragrant spices.",
       "imageHint": "mutton korma"
     },
@@ -410,7 +410,7 @@
     },
     {
       "id": "Mutton Bhona",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/item_64.png",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Bhuna.png",
       "description": "A traditional Bengali dish where mutton is slow-cooked with spices until tender.",
       "imageHint": "bengali mutton"
     },
@@ -446,93 +446,201 @@
     },
     {
       "id": "Chicken Sweet Corn Soup",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(70).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1741315034133-321591ccadd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb3JuJTIwc291cHxlbnwwfHx8fDE3NjcxMDE0MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "A creamy and comforting soup with chicken and sweet corn kernels.",
       "imageHint": "corn soup"
     },
     {
       "id": "Chicken Hot & Sour Soup",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(71).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1682596044586-76c1d9ee1a97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzcGljeSUyMHNvdXB8ZW58MHx8fHwxNzY3MTE2NjkxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "A zesty and spicy soup with chicken, mushrooms, and other vegetables.",
       "imageHint": "spicy soup"
     },
     {
       "id": "Tandoori Roti",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(72).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1697155406014-04dc649b0953?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxpbmRpYW4lMjBicmVhZHxlbnwwfHx8fDE3NjcwOTQ0MjJ8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "Whole wheat flatbread cooked in a traditional clay tandoor.",
       "imageHint": "indian bread"
     },
     {
       "id": "Tandoori Butter Roti",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(73).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1702742803056-e48f9a95c7a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnV0dGVyZWQlMjBicmVhZHxlbnwwfHx8fDE3NjcxMTY2OTF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "A classic tandoori roti brushed with a generous amount of butter.",
       "imageHint": "buttered bread"
     },
     {
       "id": "Butter Naan",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(74).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1725483990150-61a9fbd746d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bmFhbiUyMGJyZWFkfGVufDB8fHx8MTc2NzAzNDc2Nnww&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "Soft and fluffy leavened bread cooked in a tandoor and brushed with butter.",
       "imageHint": "naan bread"
     },
     {
       "id": "Garlic Naan",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(75).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1707886114218-fb2bcfbcb1e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z2FybGljJTIwYnJlYWR8ZW58MHx8fHwxNzY3MTA5NTAzfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "A flavorful naan topped with chopped garlic and herbs, cooked to perfection.",
       "imageHint": "garlic bread"
     },
     {
       "id": "Kabuli Naan",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(76).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1617859047277-9f47d2bd9696?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzd2VldCUyMGJyZWFkfGVufDB8fHx8MTc2NzAzMjQxMHww&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "A slightly sweet naan stuffed with nuts and raisins. A delightful treat.",
       "imageHint": "sweet bread"
     },
     {
       "id": "Paneer Kulcha",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(77).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1633785587151-37feccd8e445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdHVmZmVkJTIwYnJlYWR8ZW58MHx8fHwxNzY3MTE2NjkyfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "A soft, fluffy bread stuffed with a delicious spiced paneer filling.",
       "imageHint": "stuffed bread"
     },
     {
       "id": "Masala Kulcha",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(78).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1653550027228-e3202a24ccc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYXNhbGElMjBicmVhZHxlbnwwfHx8fDE3NjcxMTY2OTF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "A flavorful bread stuffed with a mix of spiced vegetables and potatoes.",
       "imageHint": "masala bread"
     },
     {
       "id": "Chicken Tandoori",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(79).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1657205937707-940bf77b2602?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGFuZG9vcmklMjBjaGlja2VufGVufDB8fHx8MTc2NzA5MDg4NXww&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "The king of kababs! Chicken marinated in yogurt and spices, roasted in a tandoor.",
       "imageHint": "tandoori chicken"
     },
     {
       "id": "Chicken Tikka (6 pcs)",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(80).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1697155836215-425794e792cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwa2FiYWJ8ZW58MHx8fHwxNzY3MTE2NjkyfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "Boneless chicken chunks marinated in spices and yogurt, grilled to perfection.",
       "imageHint": "chicken kabab"
     },
     {
       "id": "Chicken Hariyali Kabab (6 pcs)",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(81).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1707032207621-17df1af06891?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxncmVlbiUyMGthYmFifGVufDB8fHx8MTc2NzExNjY5Mnww&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "Chicken kababs marinated in a fresh green paste of mint, cilantro, and spices.",
       "imageHint": "green kabab"
     },
     {
       "id": "Chicken Tikka Tawa Masala (6 pcs)",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(82).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1753939843647-266025e0d1ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0YXdhJTIwY2hpY2tlbnxlbnwwfHx8fDE3NjcxMTY2OTF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "Grilled chicken tikka pieces pan-fried in a spicy and tangy masala.",
       "imageHint": "tawa chicken"
     },
     {
       "id": "Tandoori Butter Chicken",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(83).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1627880872609-f7ddd76616c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3aG9sZSUyMGNoaWNrZW58ZW58MHx8fHwxNzY3MTE2NjkxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "A whole tandoori chicken served in our signature creamy butter chicken gravy.",
       "imageHint": "whole chicken"
     },
     {
       "id": "Paneer Tikka (6 pcs)",
-      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/1(84).jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1647545195490-240454f3c8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGFuZWVyJTIwa2FiYWJ8ZW58MHx8fHwxNzY3MTE2NjkxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "description": "Cubes of paneer marinated in spices and grilled in a tandoor. A veggie delight.",
       "imageHint": "paneer kabab"
+    },
+    {
+      "id": "Chicken Rezala",
+      "description": "Chicken cooked in a white, aromatic yogurt-based gravy with cashew nut paste.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Rezala.png",
+      "imageHint": "white chicken curry"
+    },
+    {
+      "id": "Chicken Kosha",
+      "description": "A rich, spicy, and semi-dry Bengali chicken curry with thick gravy.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Kosha.png",
+      "imageHint": "bengali chicken"
+    },
+    {
+      "id": "Chicken Korma",
+      "description": "Chicken simmered in a creamy, yogurt, and nut-based mild gravy.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Korma.png",
+      "imageHint": "chicken korma"
+    },
+    {
+      "id": "Chicken Latpata",
+      "description": "Chicken coated in a thick, semi-dry, and spicy gravy.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chicken-Latpata.png",
+      "imageHint": "spicy chicken"
+    },
+    {
+      "id": "Boneless Chilli Chicken",
+      "description": "Succulent boneless chicken pieces tossed in a spicy, tangy sauce.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Boneless-Chilli-Chicken.png",
+      "imageHint": "chilli chicken"
+    },
+    {
+      "id": "Crispy Honey Chicken",
+      "description": "Fried chicken strips glazed with a sweet and sticky honey sesame sauce.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Crispy-Honey-Chicken.png",
+      "imageHint": "honey chicken"
+    },
+    {
+      "id": "Mutton Kosha",
+      "description": "Tender mutton pieces slow-cooked in a rich, dark, and spicy Bengali-style gravy.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Kosha.png",
+      "imageHint": "bengali mutton"
+    },
+    {
+      "id": "Mutton Korma",
+      "description": "Mutton cooked in a velvety, creamy, and mildly spiced yogurt-based gravy.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Korma.png",
+      "imageHint": "mutton korma"
+    },
+    {
+      "id": "Mutton Curry",
+      "description": "A hearty and flavorful curry made with tender goat meat and aromatic spices.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Curry.png",
+      "imageHint": "mutton curry"
+    },
+    {
+      "id": "Mutton Bhuna",
+      "description": "Mutton slowly sautéed with spices until dry and flavorful.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Bhuna.png",
+      "imageHint": "dry mutton"
+    },
+    {
+      "id": "Mutton Rogan Josh",
+      "description": "A Kashmiri delicacy. Aromatic mutton curry with a brilliant red color.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Mutton-Rogan-Josh.png",
+      "imageHint": "kashmiri mutton"
+    },
+    {
+      "id": "Fish Curry",
+      "description": "Fresh fish simmered in a tangy and spicy tomato-based gravy.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Fish-Curry.png",
+      "imageHint": "fish curry"
+    },
+    {
+      "id": "Fish Kalia",
+      "description": "A rich and spicy Bengali fish curry prepared with onions, ginger, and garlic.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Fish-Kalia.png",
+      "imageHint": "bengali fish"
+    },
+    {
+      "id": "Fish Masala",
+      "description": "Fish steaks coated in a thick, spicy masala gravy.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Fish-Masala.png",
+      "imageHint": "fish masala"
+    },
+    {
+      "id": "Fish Do Pyaza",
+      "description": "Fish cooked with plenty of onions and green chilies.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Fish-Do-Pyaza.png",
+      "imageHint": "fish onion"
+    },
+    {
+      "id": "Chilli Fish",
+      "description": "Crispy battered fish tossed in a spicy and tangy chili sauce with peppers.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Chilli-Fish.png",
+      "imageHint": "chilli fish"
+    },
+    {
+      "id": "Egg Curry",
+      "description": "Boiled eggs simmered in a spicy and flavorful onion-tomato gravy.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Egg-Curry.png",
+      "imageHint": "egg curry"
+    },
+    {
+      "id": "Egg Masala",
+      "description": "Hard-boiled eggs cooked in a thick, masala-rich sauce.",
+      "imageUrl": "https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/food_images/Egg-Masala.png",
+      "imageHint": "egg masala"
     }
   ]
 }
