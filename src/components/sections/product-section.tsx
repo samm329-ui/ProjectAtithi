@@ -714,11 +714,11 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
                     {imageData ? <Image src={imageData.imageUrl} alt={item.description} fill data-ai-hint={imageData.imageHint} className="object-cover rounded-t-xl" /> : <div className="bg-muted w-full h-full rounded-t-xl"/>}
                 </div>
                 <div className="p-4">
-                    <div className="flex justify-between items-start mb-1">
-                        <div className="flex-grow min-w-0 pr-2">
+                    <div className="flex justify-between items-start mb-1 gap-2">
+                        <div className="flex-grow min-w-0">
                            <h3 className="font-semibold text-lg text-[#2A2A2A] truncate">{item.name}</h3>
                         </div>
-                        <p className="font-bold text-lg text-[#2A2A2A] ml-2 flex-shrink-0">Rs. {item.price}</p>
+                        <p className="font-bold text-lg text-[#2A2A2A] flex-shrink-0">Rs. {item.price}</p>
                     </div>
                     <div className="flex items-center gap-2 mb-2">
                         <div className="flex items-center gap-0.5">
@@ -727,8 +727,8 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
                         </div>
                         <span className="text-sm text-[#6E6E6E]">({item.ratingsCount})</span>
                     </div>
-                    <p className="text-sm text-[#6E6E6E] mb-4 line-clamp-2">{item.description}</p>
-                    <div className="flex justify-end items-center gap-2 flex-shrink-0">
+                    <p className="text-sm text-[#6E6E6E] mb-4 line-clamp-2 h-10">{item.description}</p>
+                    <div className="flex justify-end items-center gap-2">
                         <Button asChild variant="outline" className="h-10">
                             <Link href="tel:8250104315" onClick={(e) => e.stopPropagation()}>
                                 <Phone className="mr-2 h-4 w-4" /> Call to Order
@@ -743,11 +743,14 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
 
     // Standard Card Layout
     return (
-        <div className="w-full overflow-hidden bg-white rounded-xl shadow-product p-3 flex gap-3" onClick={() => onCardClick(item)}>
+        <div className="w-full overflow-hidden bg-white rounded-xl shadow-product p-3 grid grid-cols-[auto_1fr] gap-3 items-center" onClick={() => onCardClick(item)}>
+            {/* Column 1: Image */}
             <div className="relative w-24 h-24 flex-shrink-0">
                 {imageData ? <Image src={imageData.imageUrl} alt={item.description} fill data-ai-hint={imageData.imageHint} className="object-cover rounded-lg" /> : <div className="bg-muted w-full h-full rounded-lg"/>}
             </div>
-            <div className="flex-grow flex flex-col min-w-0">
+            
+            {/* Column 2: Content */}
+            <div className="flex flex-col min-w-0 h-full">
                 <h3 className="font-semibold text-base text-[#2A2A2A] truncate">{item.name}</h3>
                 <div className="flex items-center gap-2 my-1">
                     <div className="flex items-center gap-0.5">
@@ -828,9 +831,9 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
         {searchQuery ? (
              <div>
                 <div className='md:hidden'>
-                    <h2 className="text-xl font-bold text-foreground mb-4 px-4">Search Results for "{searchQuery}"</h2>
+                    <h2 className="text-xl font-bold text-foreground mb-4">Search Results for "{searchQuery}"</h2>
                     <ScrollArea className="h-[70vh]">
-                        <div className="space-y-4 p-4">
+                        <div className="space-y-4">
                             {searchResults.length > 0 ? (
                                 searchResults.map(item => (
                                     <MobileProductCard 
@@ -949,7 +952,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                             </Select>
                         </div>
                     </div>
-                     <div className="grid grid-cols-2 gap-4 px-4">
+                     <div className="grid grid-cols-2 gap-4">
                         {allMenuItems.map((category) => {
                              const firstItem = category.items[0];
                              const imageData = firstItem ? PlaceHolderImages.find(img => img.id === firstItem.name) : null;
@@ -1004,3 +1007,4 @@ export default ProductSection;
     
 
     
+
