@@ -727,7 +727,7 @@ const MobileProductCard = ({ item, cartItem, onAddToCart, onRemoveFromCart, onCa
                         </div>
                         <span className="text-sm text-[#6E6E6E]">({item.ratingsCount})</span>
                     </div>
-                    <p className="text-sm text-[#6E6E6E] mb-4 line-clamp-2 h-10">{item.description}</p>
+                    <p className="text-sm text-[#6E6E6E] mb-4 line-clamp-2 min-h-[40px]">{item.description}</p>
                     <div className="flex justify-end items-center gap-2">
                         <Button asChild variant="outline" className="h-10">
                             <Link href="tel:8250104315" onClick={(e) => e.stopPropagation()}>
@@ -829,8 +829,8 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
       <div className="container mx-auto px-4">
         
         {searchQuery ? (
-             <div>
-                <div className='md:hidden'>
+             <div className="md:hidden">
+                <div className='p-4'>
                     <h2 className="text-xl font-bold text-foreground mb-4">Search Results for "{searchQuery}"</h2>
                     <ScrollArea className="h-[70vh]">
                         <div className="space-y-4">
@@ -851,39 +851,6 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                         </div>
                     </ScrollArea>
                 </div>
-                 <div className="hidden md:block">
-                    <h2 className="text-2xl font-bold text-foreground mb-6">Search Results for "{searchQuery}"</h2>
-                    <div className="space-y-4">
-                        {searchResults.length > 0 ? (
-                            searchResults.map(item => (
-                                <div 
-                                    key={item.name} 
-                                    className="flex items-center justify-between p-3 rounded-lg border cursor-pointer hover:bg-accent/50"
-                                    onClick={() => onCardClick(item)}
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <div className="relative w-16 h-16 rounded-md overflow-hidden">
-                                            {PlaceHolderImages.find(img => img.id === item.name) ? (
-                                                <Image src={PlaceHolderImages.find(img => img.id === item.name)!.imageUrl} alt={item.description} layout="fill" objectFit="cover" />
-                                            ) : (
-                                                <div className="w-full h-full bg-secondary flex items-center justify-center text-xs text-muted-foreground">No Image</div>
-                                            )}
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold">{item.name}</h4>
-                                            <p className="text-sm text-muted-foreground">Rs. {item.price}</p>
-                                        </div>
-                                    </div>
-                                    <Button variant="ghost" size="icon">
-                                        <ChevronRight className="h-5 w-5" />
-                                    </Button>
-                                </div>
-                            ))
-                        ) : (
-                            <p className="text-muted-foreground text-center py-10">No products found matching your search.</p>
-                        )}
-                    </div>
-                 </div>
              </div>
         ) : (
             <>
@@ -914,7 +881,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 
                 <div className='block md:hidden'>
                      <div className="p-4 bg-[#F6EFE8]">
-                        <div className="flex gap-4">
+                        <div className="grid grid-cols-2 gap-4">
                             <Select onValueChange={(value) => {
                                 if (value === 'all') {
                                     return;
@@ -926,7 +893,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                             }}
                             suppressHydrationWarning
                             >
-                                <SelectTrigger className="w-1/2 rounded-full h-11 bg-white shadow-sm border-stone-200" suppressHydrationWarning>
+                                <SelectTrigger className="rounded-full h-auto min-h-11 bg-white shadow-sm border-stone-200 [&>span]:line-clamp-none [&>span]:text-left" suppressHydrationWarning>
                                     <SelectValue placeholder="All Categories" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -942,7 +909,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                                 </SelectContent>
                             </Select>
                             <Select defaultValue="popular" suppressHydrationWarning>
-                                <SelectTrigger className="w-1/2 rounded-full h-11 bg-white shadow-sm border-stone-200" suppressHydrationWarning>
+                                <SelectTrigger className="rounded-full h-auto min-h-11 bg-white shadow-sm border-stone-200 [&>span]:line-clamp-none [&>span]:text-left" suppressHydrationWarning>
                                     <SelectValue placeholder="Sort by: Popular" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -1007,4 +974,5 @@ export default ProductSection;
     
 
     
+
 
