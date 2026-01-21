@@ -66,6 +66,7 @@ const MobileHeroCarousel = ({ onCardClick }: MobileHeroCarouselProps) => {
                     priority
                   />
                 )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 {menuItem && (
                   <div className="absolute bottom-4 left-4 text-white text-lg font-bold drop-shadow-md">
                     {menuItem.name}
