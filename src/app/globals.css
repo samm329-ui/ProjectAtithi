@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,9 +47,9 @@
 }
 
 .review-card-section {
-  --bg-color: hsl(var(--primary));
-  --bg-color-light: hsl(var(--secondary));
-  --text-color-hover: hsl(var(--primary-foreground));
+  --bg-color: hsl(var(--secondary));
+  --bg-color-light: hsl(var(--primary));
+  --text-color-hover: hsl(var(--card-foreground));
   --box-shadow-color: hsl(var(--primary) / 0.48);
 }
 
@@ -337,3 +338,5 @@
 .example-2 .icon-content a[data-social="mail"] ~ .tooltip {
   background-color: #7f8c8d;
 }
+
+    
