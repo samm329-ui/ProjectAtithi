@@ -1,6 +1,7 @@
 
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { config, SectionData } from "@/lib/utils";
@@ -25,14 +26,13 @@ const HeroSection = ({}: HeroSectionProps) => {
     <section id="home" className="relative h-screen w-full overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 z-[-1] bg-black">
-      <video
-          key="hero-video"
-          src="https://ydaeoeawwmggwuwxjqqz.supabase.co/storage/v1/object/public/asset/Create_an_animation_1080p_202601041221.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
+        <Image
+          src="https://yryoxzexvuhimvezdwle.supabase.co/storage/v1/object/public/asset/HeroSec2.webp"
+          alt="A serene and luxurious dining space at Atithi Family Restaurant."
+          fill
+          className="object-cover"
+          priority
+          unoptimized
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>

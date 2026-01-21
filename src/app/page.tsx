@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Header from "@/components/header";
 import HeroSection from "@/components/sections/hero-section";
-import LoadingScreen from "@/components/loading-screen";
 import MenuSection from "@/components/sections/menu-section";
 import BestSellerSection from "@/components/sections/best-seller-section";
 import ProductSection from "@/components/sections/product-section";
@@ -26,7 +25,6 @@ import { MobileBottomNav } from "@/components/mobile-bottom-nav";
 export type CartItem = MenuItem & { quantity: number };
 
 export default function Home() {
-  const [isAppLoading, setIsAppLoading] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
   const { toast } = useToast();
@@ -144,16 +142,11 @@ export default function Home() {
     });
 };
 
-  useEffect(() => {
-    setIsAppLoading(false);
-  }, []);
-  
   const totalCartItems = cart.reduce((total, item) => total + item.quantity, 0);
 
 
   return (
     <>
-      <LoadingScreen isLoading={isAppLoading} />
       <div className="hidden md:block">
         <Header 
           cart={cart}
@@ -177,7 +170,7 @@ export default function Home() {
               onProductSelect={handleCardClick}
           />
       </div>
-        <div className={`transition-opacity duration-500 ${isAppLoading ? 'opacity-0' : 'opacity-100'} pb-16 md:pb-0`}>
+        <div className="pb-16 md:pb-0">
           <main>
              <div className="hidden md:block">
               <HeroSection />
@@ -238,7 +231,7 @@ export default function Home() {
                 onCartClick={() => setIsCartSheetOpen(true)}
             />
 
-            <div className="md:hidden my-8 -mx-4">
+            <div className="md:hidden -mx-4">
                 <Image
                     src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(6).png"
                     alt="Special Offer Banner"
@@ -246,6 +239,13 @@ export default function Home() {
                     height={400}
                     className="object-cover w-full"
                 />
+            </div>
+            
+            <div className="text-center my-8 md:my-16 md:hidden">
+              <h2 className="text-2xl font-bold text-foreground">Words from Our Guests</h2>
+              <p className="mt-2 text-md text-muted-foreground max-w-xl mx-auto px-4">
+                  We are proud to be a part of so many wonderful journeys. Here's what our valued customers have to say.
+              </p>
             </div>
             
             <ReviewsSection reviews={reviews} />
