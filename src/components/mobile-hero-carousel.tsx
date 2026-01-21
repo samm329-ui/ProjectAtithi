@@ -66,6 +66,11 @@ const MobileHeroCarousel = ({ onCardClick }: MobileHeroCarouselProps) => {
                     priority
                   />
                 )}
+                {menuItem && (
+                  <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs font-semibold px-2 py-1 rounded-md">
+                    {menuItem.name}
+                  </div>
+                )}
               </div>
             </CarouselItem>
           ))}
