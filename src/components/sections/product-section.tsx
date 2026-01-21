@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import * as React from 'react';
@@ -447,10 +448,10 @@ const ProductRow = React.memo(({
                                 key={`${carouselId}-${item.name}-${index}`}
                                 className="pl-4 basis-[80%] sm:basis-[33%]"
                             >
-                                <div className="p-1 transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer"
+                                <div className="p-1 transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer h-full"
                                 onClick={() => onCardClick(item)}
                                 >
-                                  <div className="w-full bg-card rounded-[30px] border flex flex-col group">
+                                  <div className="w-full bg-card rounded-[30px] border flex flex-col group h-full">
                                       <div className="relative w-full aspect-[4/3]">
                                           {imageData ? (
                                               <Image
@@ -468,10 +469,10 @@ const ProductRow = React.memo(({
                                           )}
                                           {discount > 0 && <Badge variant="destructive" className="absolute top-2 right-2 sm:top-4 sm:right-4">{discount}% OFF</Badge>}
                                       </div>
-                                      <div className="p-3 sm:p-5 flex flex-col flex-grow justify-between">
+                                      <div className="p-3 sm:p-5 flex flex-col flex-grow">
                                           <div>
                                               <h3 className="font-['Lucida_Sans'] text-sm sm:text-base font-semibold text-foreground truncate">{item.name}</h3>
-                                              <p className="font-['Lucida_Sans'] text-[#999999] text-xs mt-1 truncate">{item.description}</p>
+                                              <p className="font-['Lucida_Sans'] text-[#999999] text-xs mt-1 min-h-[2rem]">{item.description}</p>
                                               <div className="mt-2 flex items-center gap-2">
                                                   <div className="flex items-center">
                                                     {Array.from({ length: 5 }).map((_, i) => (
@@ -489,7 +490,7 @@ const ProductRow = React.memo(({
                                               </div>
                                           </div>
 
-                                          <div className="mt-2 space-y-2">
+                                          <div className="mt-auto pt-4 space-y-2">
                                             {cartItem ? (
                                                 <div className="w-full flex items-center justify-between gap-2">
                                                     <Button variant="outline" size="icon" className="h-8 w-8" onClick={(e) => {e.stopPropagation(); onRemoveFromCart(item.name);}}>
