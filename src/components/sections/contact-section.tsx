@@ -67,7 +67,7 @@ const ContactSection = () => {
 
                         return (
                             <ComingSoonDialog key={index}>
-                                <button className={`socialContainer ${detail.containerClass}`}>
+                                <button className={`socialContainer ${detail.containerClass}`} suppressHydrationWarning>
                                     <Icon className="socialSvg" />
                                 </button>
                             </ComingSoonDialog>

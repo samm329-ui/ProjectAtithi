@@ -71,7 +71,7 @@ const HeroSection = ({}: HeroSectionProps) => {
 
                   return (
                     <ComingSoonDialog key={social.name}>
-                       <button className="text-white/80 hover:text-white transition-colors">
+                       <button className="text-white/80 hover:text-white transition-colors" suppressHydrationWarning>
                          <social.icon className="h-6 w-6" />
                          <span className="sr-only">{social.name}</span>
                        </button>
