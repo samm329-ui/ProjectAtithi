@@ -501,11 +501,11 @@ const ProductRow = React.memo(({
                                                     </Button>
                                                 </div>
                                             ) : (
-                                                <Button className="w-full bg-primary" onClick={(e) => {e.stopPropagation(); onAddToCart(item)}}>
+                                                <Button size="sm" className="w-full bg-primary" onClick={(e) => {e.stopPropagation(); onAddToCart(item)}}>
                                                     <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
                                                 </Button>
                                             )}
-                                            <Button variant="outline" className="w-full bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground" asChild>
+                                            <Button size="sm" variant="outline" className="w-full bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground" asChild>
                                                 <Link href="tel:8250104315" onClick={(e) => e.stopPropagation()}>
                                                     <Phone className="mr-2 h-4 w-4" /> Call to Order
                                                 </Link>
@@ -991,4 +991,3 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 };
 
 export default ProductSection;
-
