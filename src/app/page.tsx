@@ -179,7 +179,7 @@ export default function Home() {
               <HeroSection />
             </div>
             <div className="md:hidden">
-              <div className="my-4">
+              <div>
                   <Image
                       src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(5).png"
                       alt="Special Offer Banner"
@@ -245,7 +245,7 @@ export default function Home() {
               item={selectedItem}
               cartItem={cart.find(ci => ci.name === selectedItem.name)}
               onAddToCart={handleAddToCart}
-              onRemoveFromCart={handleRemoveFromCart}
+              onRemoveFromCart={onRemoveFromCart}
               onRate={handleRatingChange}
               onCartClick={() => {
                 setIsDetailViewOpen(false);
