@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -92,29 +93,31 @@ const MobileSearchHeader = ({ onSearch, searchQuery, allMenuItems, onProductSele
             {searchQuery && (
                 <div className="fixed top-[73px] left-0 right-0 bottom-0 bg-background z-30 md:hidden">
                     <ScrollArea className="h-full">
-                         <div className="container mx-auto px-4 py-4">
+                         <div className="container mx-auto px-4 py-2">
                             {searchResults.length > 0 ? (
-                                <div className="space-y-3">
-                                    <p className="text-sm font-semibold text-muted-foreground">Showing results for "{searchQuery}"</p>
-                                    {searchResults.map(item => {
-                                        const imageData = PlaceHolderImages.find(img => img.id === item.name);
-                                        return (
-                                            <button key={item.name} onClick={() => handleResultClick(item)} className="w-full text-left flex items-center gap-4 p-3 rounded-lg hover:bg-secondary">
-                                                <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
-                                                    {imageData ? (
-                                                        <Image src={imageData.imageUrl} alt={item.name} fill className="object-cover" />
-                                                    ) : (
-                                                        <div className="w-full h-full bg-muted"></div>
-                                                    )}
-                                                </div>
-                                                <div>
-                                                    <p className="font-semibold text-foreground">{item.name}</p>
-                                                    <p className="text-sm text-muted-foreground">Rs. {item.price}</p>
-                                                </div>
-                                            </button>
-                                        );
-                                    })}
-                                </div>
+                                <>
+                                    <p className="text-sm font-semibold text-muted-foreground mb-2">Showing results for "{searchQuery}"</p>
+                                    <div className="space-y-3">
+                                        {searchResults.map(item => {
+                                            const imageData = PlaceHolderImages.find(img => img.id === item.name);
+                                            return (
+                                                <button key={item.name} onClick={() => handleResultClick(item)} className="w-full text-left flex items-center gap-4 p-3 rounded-lg hover:bg-secondary">
+                                                    <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
+                                                        {imageData ? (
+                                                            <Image src={imageData.imageUrl} alt={item.name} fill className="object-cover" />
+                                                        ) : (
+                                                            <div className="w-full h-full bg-muted"></div>
+                                                        )}
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-semibold text-foreground">{item.name}</p>
+                                                        <p className="text-sm text-muted-foreground">Rs. {item.price}</p>
+                                                    </div>
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+                                </>
                             ) : (
                                 <div className="text-center py-10">
                                     <p className="font-semibold">No results found</p>
