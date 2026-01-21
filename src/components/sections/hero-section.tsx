@@ -54,8 +54,20 @@ const HeroSection = ({}: HeroSectionProps) => {
               {/* Bottom Socials */}
               <div className="flex space-x-4">
                 {socialLinks.map((social) => {
-                  const linkContent = (
+                  if (!social.isExternal) {
+                    return (
+                      <ComingSoonDialog key={social.name}>
+                        <button className="text-white/80 hover:text-white transition-colors" suppressHydrationWarning>
+                          <social.icon className="h-6 w-6" />
+                          <span className="sr-only">{social.name}</span>
+                        </button>
+                      </ComingSoonDialog>
+                    );
+                  }
+
+                  return (
                     <Link
+                      key={social.name}
                       href={social.href}
                       target={social.isExternal ? "_blank" : undefined}
                       rel={social.isExternal ? "noopener noreferrer" : undefined}
@@ -67,18 +79,6 @@ const HeroSection = ({}: HeroSectionProps) => {
                       <span className="sr-only">{social.name}</span>
                     </Link>
                   );
-
-                  if (!social.isExternal) {
-                    return (
-                      <ComingSoonDialog key={social.name}>
-                        <button className="text-white/80 hover:text-white transition-colors" suppressHydrationWarning>
-                          <social.icon className="h-6 w-6" />
-                          <span className="sr-only">{social.name}</span>
-                        </button>
-                      </ComingSoonDialog>
-                    );
-                  }
-                  return linkContent;
                 })}
               </div>
           </div>
