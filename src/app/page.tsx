@@ -179,20 +179,19 @@ export default function Home() {
               <HeroSection />
             </div>
             <div className="md:hidden">
+              <div className="my-4">
+                  <Image
+                      src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(5).png"
+                      alt="Special Offer Banner"
+                      width={1200}
+                      height={400}
+                      className="object-cover w-full"
+                      priority
+                  />
+              </div>
               <div className="px-4">
-                    <div className="my-4 overflow-hidden rounded-lg">
-                        <Image
-                            src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(5).png"
-                            alt="Special Offer Banner"
-                            width={1200}
-                            height={400}
-                            className="object-cover w-full"
-                            priority
-                        />
-                    </div>
-                  <h1 className="text-2xl font-semibold tracking-[0.2px] text-foreground mt-4">Our Best Seller</h1>
-                  <MobileHeroCarousel onCardClick={handleCardClick} onAddToCart={handleAddToCart} />
-                  <p className="text-center text-xs text-muted-foreground mt-1">Bulk order is acceptable</p>
+                <h1 className="text-2xl font-semibold tracking-[0.2px] text-foreground mt-4">Our Best Seller</h1>
+                <MobileHeroCarousel onCardClick={handleCardClick} onAddToCart={handleAddToCart} />
               </div>
               <div className="mx-4 mt-8 mb-4 border-b border-border"></div>
             </div>
