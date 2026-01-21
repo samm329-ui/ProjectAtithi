@@ -171,7 +171,10 @@ export default function Home() {
       
       <div className="block md:hidden">
           <MobileSearchHeader 
+              searchQuery={searchQuery}
               onSearch={setSearchQuery}
+              allMenuItems={allMenuItems}
+              onProductSelect={handleCardClick}
           />
       </div>
         <div className={`transition-opacity duration-500 ${isAppLoading ? 'opacity-0' : 'opacity-100'} pb-16 md:pb-0`}>

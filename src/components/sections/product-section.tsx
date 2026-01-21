@@ -808,220 +808,163 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
         setIsCategoryDialogOpen(true);
     };
 
-    const flatMenuItems = React.useMemo(() => allMenuItems.flatMap(c => c.items), [allMenuItems]);
-
-    const searchResults = React.useMemo(() => {
-        if (!searchQuery) return [];
-        const lowerCaseQuery = searchQuery.toLowerCase();
-
-        let categoryResults: MenuItem[] = [];
-        if (lowerCaseQuery.includes('non veg')) {
-            const chickenCategory = allMenuItems.find(cat => cat.name.toLowerCase().includes('chicken'));
-            const muttonCategory = allMenuItems.find(cat => cat.name.toLowerCase().includes('mutton'));
-            if (chickenCategory) categoryResults.push(...chickenCategory.items);
-            if (muttonCategory) categoryResults.push(...muttonCategory.items);
-        } else {
-            const matchedCategory = allMenuItems.find(cat => cat.name.toLowerCase().includes(lowerCaseQuery));
-            if (matchedCategory) {
-                categoryResults = matchedCategory.items;
-            }
-        }
-
-        if (categoryResults.length > 0) {
-            return categoryResults;
-        }
-
-        return flatMenuItems.filter(item =>
-            item.name.toLowerCase().includes(lowerCaseQuery) ||
-            item.description.toLowerCase().includes(lowerCaseQuery)
-        );
-    }, [searchQuery, allMenuItems, flatMenuItems]);
-
-
   return (
     <section id="products" className="pb-6 md:py-32 bg-background overflow-hidden relative">
-        
-        {searchQuery ? (
-             <div className="md:hidden px-4 container mx-auto">
-                <h2 className="text-xl font-bold text-foreground mb-4">Search Results for "{searchQuery}"</h2>
-                <ScrollArea className="h-[70vh]">
-                    <div className="space-y-4">
-                        {searchResults.length > 0 ? (
-                            searchResults.map(item => (
-                                <MobileProductCard 
-                                    key={item.name}
-                                    item={item}
-                                    cartItem={cart.find(ci => ci.name === item.name)}
-                                    onAddToCart={onAddToCart}
-                                    onRemoveFromCart={onRemoveFromCart}
-                                    onCardClick={onCardClick}
-                                />
-                            ))
-                        ) : (
-                            <p className="text-muted-foreground text-center py-10">No products found matching your search.</p>
-                        )}
+        <div className="hidden md:block">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                        Explore Our Menu
+                    </h2>
+                    <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                        A wide variety of dishes to satisfy every craving, from
+                        traditional flavors to modern delights.
+                    </p>
+                </div>
+            </div>
+
+            <div className="space-y-12">
+            {allMenuItems.map((category, i) => {
+                const categoryComponent = (
+                    <div className='container mx-auto px-4' key={category.name}>
+                        <ProductCategory 
+                            category={{...category, items: category.items}}
+                            cart={cart} 
+                            onAddToCart={onAddToCart} 
+                            onRemoveFromCart={onRemoveFromCart}
+                            onCardClick={onCardClick}
+                        />
                     </div>
-                </ScrollArea>
-             </div>
-        ) : (
-            <>
-                <div className="hidden md:block">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                                Explore Our Menu
-                            </h2>
-                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                                A wide variety of dishes to satisfy every craving, from
-                                traditional flavors to modern delights.
-                            </p>
+                );
+
+                let bannerComponent = null;
+
+                if (category.name === 'Menu') {
+                    bannerComponent = (
+                        <div key="banner-menu" className="my-12">
+                            <Image
+                                src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(5).png"
+                                alt="Special Offer Banner"
+                                width={1920}
+                                height={400}
+                                className="object-cover w-full"
+                            />
                         </div>
-                    </div>
+                    );
+                }
+                    else if (category.name === 'Rolls') {
+                    bannerComponent = (
+                        <div key="banner-rolls" className="my-12">
+                            <Image
+                                src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(6).png"
+                                alt="Special Offer Banner"
+                                width={1920}
+                                height={400}
+                                className="object-cover w-full"
+                            />
+                        </div>
+                    );
+                }
 
-                    <div className="space-y-12">
-                    {allMenuItems.map((category, i) => {
-                        const categoryComponent = (
-                            <div className='container mx-auto px-4' key={category.name}>
-                                <ProductCategory 
-                                    category={{...category, items: category.items}}
-                                    cart={cart} 
-                                    onAddToCart={onAddToCart} 
-                                    onRemoveFromCart={onRemoveFromCart}
-                                    onCardClick={onCardClick}
-                                />
-                            </div>
-                        );
+                if (bannerComponent) {
+                    return [categoryComponent, bannerComponent];
+                }
+                
+                return [categoryComponent];
+            })}
+            </div>
+        </div>
 
-                        let bannerComponent = null;
-
-                        if (category.name === 'Menu') {
-                            bannerComponent = (
-                                <div key="banner-menu" className="my-12">
-                                    <Image
-                                        src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(5).png"
-                                        alt="Special Offer Banner"
-                                        width={1920}
-                                        height={400}
-                                        className="object-cover w-full"
-                                    />
-                                </div>
-                            );
-                        }
-                         else if (category.name === 'Rolls') {
-                            bannerComponent = (
-                                <div key="banner-rolls" className="my-12">
-                                    <Image
-                                        src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(6).png"
-                                        alt="Special Offer Banner"
-                                        width={1920}
-                                        height={400}
-                                        className="object-cover w-full"
-                                    />
-                                </div>
-                            );
-                        }
-
-                        if (bannerComponent) {
-                           return [categoryComponent, bannerComponent];
-                        }
-                        
-                        return [categoryComponent];
-                    })}
+        <div className='block md:hidden'>
+            <div className="mx-4">
+                <div className="bg-white rounded-xl shadow-filters p-2">
+                        <div className="grid grid-cols-2 gap-2">
+                        <Select onValueChange={(value) => {
+                            if (value === 'all') {
+                                return;
+                            }
+                            const category = allMenuItems.find(c => c.name.toLowerCase().replace(/\s+/g, '-') === value);
+                            if (category) {
+                                handleOpenCategoryDialog(category);
+                            }
+                        }}
+                        suppressHydrationWarning={true}
+                        >
+                            <SelectTrigger className="h-12 bg-white text-foreground border-border rounded-xl text-[15px] font-medium px-[18px]" suppressHydrationWarning={true}>
+                                <SelectValue placeholder="All Categories" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="all">All Categories</SelectItem>
+                                {allMenuItems.map(category => (
+                                    <SelectItem 
+                                        key={category.name} 
+                                        value={category.name.toLowerCase().replace(/\s+/g, '-')}
+                                    >
+                                        {category.name}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                        <Select defaultValue="popular" suppressHydrationWarning={true}>
+                            <SelectTrigger className="h-12 bg-white text-foreground border-border rounded-xl text-[15px] font-medium px-[18px]" suppressHydrationWarning={true}>
+                                <SelectValue placeholder="Sort by: Popular" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="popular">Sort by: Popular</SelectItem>
+                                <SelectItem value="rating">Sort by: Rating</SelectItem>
+                            </SelectContent>
+                        </Select>
                     </div>
                 </div>
-
-                <div className='block md:hidden'>
-                    <div className="mx-4">
-                        <div className="bg-white rounded-xl shadow-filters p-2">
-                             <div className="grid grid-cols-2 gap-2">
-                                <Select onValueChange={(value) => {
-                                    if (value === 'all') {
-                                        return;
-                                    }
-                                    const category = allMenuItems.find(c => c.name.toLowerCase().replace(/\s+/g, '-') === value);
-                                    if (category) {
-                                        handleOpenCategoryDialog(category);
-                                    }
-                                }}
-                                suppressHydrationWarning={true}
-                                >
-                                    <SelectTrigger className="h-12 bg-white text-foreground border-border rounded-xl text-[15px] font-medium px-[18px]" suppressHydrationWarning={true}>
-                                        <SelectValue placeholder="All Categories" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="all">All Categories</SelectItem>
-                                        {allMenuItems.map(category => (
-                                            <SelectItem 
-                                                key={category.name} 
-                                                value={category.name.toLowerCase().replace(/\s+/g, '-')}
-                                            >
-                                                {category.name}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <Select defaultValue="popular" suppressHydrationWarning={true}>
-                                    <SelectTrigger className="h-12 bg-white text-foreground border-border rounded-xl text-[15px] font-medium px-[18px]" suppressHydrationWarning={true}>
-                                        <SelectValue placeholder="Sort by: Popular" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="popular">Sort by: Popular</SelectItem>
-                                        <SelectItem value="rating">Sort by: Rating</SelectItem>
-                                    </SelectContent>
-                                </Select>
+            </div>
+            <div className='mx-4'>
+                <h2 className="text-xl font-semibold text-foreground mt-4 mx-4">Categories</h2>
+                    <div className="mt-4 border-b border-border"></div>
+            </div>
+                <div className="grid grid-cols-2 gap-4 px-4 pt-4">
+                {allMenuItems.map((category) => {
+                        const firstItem = category.items[0];
+                        const imageData = firstItem ? PlaceHolderImages.find(img => img.id === firstItem.name) : null;
+                        const itemCount = category.items.length;
+                
+                    return (
+                        <button key={category.name} onClick={() => handleOpenCategoryDialog(category)} className="border-0 bg-card rounded-[14px] shadow-card-subtle overflow-hidden text-left w-full focus:outline-none focus:ring-2 focus:ring-primary ring-offset-2 aspect-square" suppressHydrationWarning={true}>
+                            <div className="relative w-full h-full">
+                                <div className="absolute inset-0">
+                                    {imageData ? (
+                                        <Image
+                                            src={imageData.imageUrl}
+                                            alt={`Preview of ${category.name}`}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full bg-secondary flex items-center justify-center">
+                                            <Menu className="w-8 h-8 text-muted-foreground/50"/>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
+                                <div className="relative h-full flex flex-col justify-end p-3 drop-shadow-lg">
+                                    <h3 className="font-semibold text-xl text-white">{category.name}</h3>
+                                    <p className="text-[13px] text-white/90">{itemCount} items</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className='mx-4'>
-                        <h2 className="text-xl font-semibold text-foreground mt-4 mx-4">Categories</h2>
-                         <div className="mt-4 border-b border-border"></div>
-                    </div>
-                     <div className="grid grid-cols-2 gap-4 px-4 pt-4">
-                        {allMenuItems.map((category) => {
-                             const firstItem = category.items[0];
-                             const imageData = firstItem ? PlaceHolderImages.find(img => img.id === firstItem.name) : null;
-                             const itemCount = category.items.length;
-                        
-                            return (
-                                <button key={category.name} onClick={() => handleOpenCategoryDialog(category)} className="border-0 bg-card rounded-[14px] shadow-card-subtle overflow-hidden text-left w-full focus:outline-none focus:ring-2 focus:ring-primary ring-offset-2 aspect-square" suppressHydrationWarning={true}>
-                                    <div className="relative w-full h-full">
-                                        <div className="absolute inset-0">
-                                            {imageData ? (
-                                                <Image
-                                                    src={imageData.imageUrl}
-                                                    alt={`Preview of ${category.name}`}
-                                                    fill
-                                                    className="object-cover"
-                                                />
-                                            ) : (
-                                                <div className="w-full h-full bg-secondary flex items-center justify-center">
-                                                    <Menu className="w-8 h-8 text-muted-foreground/50"/>
-                                                </div>
-                                            )}
-                                        </div>
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
-                                        <div className="relative h-full flex flex-col justify-end p-3 drop-shadow-lg">
-                                            <h3 className="font-semibold text-xl text-white">{category.name}</h3>
-                                            <p className="text-[13px] text-white/90">{itemCount} items</p>
-                                        </div>
-                                    </div>
-                                </button>
-                            )
-                        })}
-                    </div>
-                    <CategoryProductDialog
-                        isOpen={isCategoryDialogOpen}
-                        onOpenChange={setIsCategoryDialogOpen}
-                        category={selectedCategory}
-                        cart={cart}
-                        onAddToCart={onAddToCart}
-                        onRemoveFromCart={onRemoveFromCart}
-                        onCardClick={onCardClick}
-                        onCartClick={onCartClick}
-                    />
-                </div>
-            </>
-        )}
+                        </button>
+                    )
+                })}
+            </div>
+            <CategoryProductDialog
+                isOpen={isCategoryDialogOpen}
+                onOpenChange={setIsCategoryDialogOpen}
+                category={selectedCategory}
+                cart={cart}
+                onAddToCart={onAddToCart}
+                onRemoveFromCart={onRemoveFromCart}
+                onCardClick={onCardClick}
+                onCartClick={onCartClick}
+            />
+        </div>
     </section>
   );
 };
