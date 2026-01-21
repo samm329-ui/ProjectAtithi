@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import * as React from 'react';
@@ -43,78 +42,82 @@ const CartSheet = ({
     }, 0);
 
     const generateWhatsAppMessage = () => {
-        const orderDetails = cart.map(item => `${item.name} (x${item.quantity}) - Rs. ${item.price * item.quantity}`).join('\n');
+        const orderDetails = cart.map(item => `${item.name} (x${item.quantity}) - Rs. ${(item.price * item.quantity).toFixed(2)}`).join('\n');
         const message = `Hello, I would like to place the following order:\n\n${orderDetails}\n\nTotal: Rs. ${totalPrice.toFixed(2)}`;
         return `https://wa.me/918250104315?text=${encodeURIComponent(message)}`;
     };
 
     const content = (
-        <SheetContent>
-            <SheetHeader>
-                <SheetTitle>Your Cart</SheetTitle>
+        <SheetContent className="p-0 flex flex-col bg-secondary/20">
+            <SheetHeader className="p-6 border-b bg-background">
+                <SheetTitle className="text-xl font-semibold">Your Cart</SheetTitle>
             </SheetHeader>
-            <div className="py-4 h-full flex flex-col">
+            <div className="flex-grow overflow-y-auto bg-background">
                 {cart.length === 0 ? (
-                    <div className="flex-grow flex items-center justify-center">
-                        <p className="text-muted-foreground">Your cart is empty.</p>
+                    <div className="flex h-full flex-col items-center justify-center text-center p-10">
+                        <ShoppingCart className="h-16 w-16 text-muted-foreground/30" strokeWidth={1.5} />
+                        <p className="mt-4 font-semibold text-lg text-foreground">Your cart is empty</p>
+                        <p className="mt-1 text-sm text-muted-foreground">Add items from the menu to get started.</p>
                     </div>
                 ) : (
-                    <div className="flex-grow overflow-y-auto pr-4">
+                    <div className="p-6 space-y-4">
                         {cart.map(item => (
-                            <div key={item.name} className="flex justify-between items-center mb-4">
+                            <div key={item.name} className="flex justify-between items-center bg-card p-4 rounded-xl border">
                                 <div>
                                     <p className="font-semibold">{item.name}</p>
                                     <p className="text-sm text-muted-foreground">
-                                        Rs. {item.price}
+                                        Rs. {item.price.toFixed(2)}
                                     </p>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => onRemoveFromCart(item.name)}>
+                                <div className="flex items-center gap-1 bg-muted p-1 rounded-lg">
+                                    <Button variant="ghost" size="icon" className="h-7 w-7 rounded-md" onClick={() => onRemoveFromCart(item.name)}>
                                         <Minus className="h-4 w-4" />
                                     </Button>
-                                    <span className="font-bold">{item.quantity}</span>
-                                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => onAddToCart(item)}>
+                                    <span className="font-bold w-5 text-center text-sm">{item.quantity}</span>
+                                    <Button variant="ghost" size="icon" className="h-7 w-7 rounded-md" onClick={() => onAddToCart(item)}>
                                         <Plus className="h-4 w-4" />
                                     </Button>
                                 </div>
-                                <p className="font-semibold w-16 text-right">Rs. {item.price * item.quantity}</p>
+                                <p className="font-semibold w-24 text-right">Rs. {(item.price * item.quantity).toFixed(2)}</p>
                             </div>
                         ))}
                     </div>
                 )}
-                <Separator className="my-4" />
-                <SheetFooter>
+            </div>
+            {cart.length > 0 && (
+                <SheetFooter className="p-6 bg-background border-t mt-auto">
                     <div className="flex flex-col gap-4 w-full">
-                        <div className='space-y-2'>
+                        <div className='space-y-3'>
                             {totalSavings > 0 && (
-                                <div className="flex justify-between items-center font-semibold text-green-500">
-                                    <span>You Saved</span>
-                                    <span>Rs. {totalSavings.toFixed(2)}</span>
+                                <div className="flex justify-between items-center text-sm font-medium text-green-600">
+                                    <span>Total Savings</span>
+                                    <span>- Rs. {totalSavings.toFixed(2)}</span>
                                 </div>
                             )}
+                             <Separator />
                             <div className="flex justify-between items-center font-bold text-lg">
                                 <span>Total</span>
                                 <span>Rs. {totalPrice.toFixed(2)}</span>
                             </div>
                         </div>
-                        <Button disabled={cart.length === 0} className="w-full" asChild>
-                            <Link href="tel:8250104315">
-                                <Phone className="mr-2 h-4 w-4" /> Call to Order
-                            </Link>
-                        </Button>
-                         <Button disabled={cart.length === 0} className="w-full bg-green-500 hover:bg-green-600 text-white" asChild>
-                            <Link href={generateWhatsAppMessage()} target="_blank" rel="noopener noreferrer">
-                                <WhatsappIcon className="mr-2 h-4 w-4" /> Order on WhatsApp
-                            </Link>
-                        </Button>
-                        {cart.length > 0 && (
-                            <Button variant="destructive" className="w-full" onClick={onEmptyCart}>
+                        <div className="flex flex-col gap-3">
+                            <Button size="lg" disabled={cart.length === 0} className="w-full" asChild>
+                                <Link href="tel:8250104315">
+                                    <Phone className="mr-2 h-4 w-4" /> Call to Order
+                                </Link>
+                            </Button>
+                            <Button size="lg" disabled={cart.length === 0} className="w-full bg-green-500 hover:bg-green-600 text-white" asChild>
+                                <Link href={generateWhatsAppMessage()} target="_blank" rel="noopener noreferrer">
+                                    <WhatsappIcon className="mr-2 h-4 w-4" /> Order on WhatsApp
+                                </Link>
+                            </Button>
+                            <Button size="lg" variant="destructive" className="w-full" onClick={onEmptyCart}>
                                 Empty Cart
                             </Button>
-                        )}
+                        </div>
                     </div>
                 </SheetFooter>
-            </div>
+            )}
         </SheetContent>
     );
 
