@@ -120,6 +120,18 @@ export const config: Config = {
         title: 'Customer',
         review: "I visited this restaurant recently and faced a small issue with billing. Although the amount was small, accuracy in billing is important. I hope the restaurant takes more care with this in the future. The food itself was decent for the price.",
         avatarId: "review-avatar-3"
+    },
+    {
+        name: 'Rohan Sharma',
+        title: 'Food Blogger',
+        review: "The ambiance is perfect for a family dinner. I tried their Mutton Kasa and it was rich in flavor and perfectly cooked. The staff was courteous and the service was quick. A must-visit if you are on the highway.",
+        avatarId: "review-avatar-4"
+    },
+    {
+        name: 'Priya Singh',
+        title: 'Professional',
+        review: "Stopped by for a quick lunch and was pleasantly surprised. The Veg Pulao was fragrant and light. The place is very hygienic and has a calm atmosphere which is rare for a highway restaurant. Will definitely come back.",
+        avatarId: "review-avatar-5"
     }
   ]
 };
