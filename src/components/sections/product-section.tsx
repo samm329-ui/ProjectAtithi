@@ -169,40 +169,40 @@ const FilteredProductDialog = ({
 }) => {
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
-            <DialogContent className="sm:max-w-lg bg-background/90 backdrop-blur-sm">
-                <DialogHeader>
-                    <DialogTitle className='text-2xl'>Filtered Results: {categoryName}</DialogTitle>
-                    <DialogDescription>
+            <DialogContent className="sm:max-w-lg bg-background p-0 border shadow-2xl rounded-2xl">
+                <DialogHeader className="p-6 pb-4 border-b">
+                    <DialogTitle className='text-xl font-bold'>Filtered Results: {categoryName}</DialogTitle>
+                    <DialogDescription className="text-muted-foreground">
                         Here are the products matching your criteria.
                     </DialogDescription>
                 </DialogHeader>
-                <ScrollArea className="max-h-[60vh] pr-4 -mr-4">
-                    <div className="space-y-4">
+                <ScrollArea className="max-h-[60vh]">
+                    <div className="p-6 pt-4 space-y-3">
                         {items.length > 0 ? items.map(item => {
                             const cartItem = cart.find(ci => ci.name === item.name);
                             return (
-                                <div key={item.name} className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-lg border bg-secondary/30">
-                                    <div className='mb-3 sm:mb-0'>
-                                        <h4 className="font-semibold">{item.name}</h4>
-                                        <p className="text-sm text-muted-foreground">Rs. {item.price}</p>
+                                <div key={item.name} className="flex items-center justify-between p-4 rounded-xl bg-card border shadow-sm">
+                                    <div>
+                                        <h4 className="font-semibold text-foreground">{item.name}</h4>
+                                        <p className="text-sm text-muted-foreground mt-1">Rs. {item.price}</p>
                                     </div>
-                                    <div className="flex w-full sm:w-auto flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                                    <div className="flex items-center gap-3">
                                         {cartItem ? (
-                                            <div className="flex items-center justify-between gap-2">
-                                                <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => onRemoveFromCart(item.name)}>
+                                            <div className="flex items-center justify-between gap-1 rounded-lg border bg-background p-1">
+                                                <Button variant="ghost" size="icon" className="h-7 w-7 text-primary hover:bg-primary/10" onClick={() => onRemoveFromCart(item.name)}>
                                                     <Minus className="h-4 w-4" />
                                                 </Button>
-                                                <span className="font-bold w-8 text-center">{cartItem.quantity}</span>
-                                                <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => onAddToCart(item)}>
+                                                <span className="font-bold text-base w-6 text-center text-primary">{cartItem.quantity}</span>
+                                                <Button variant="ghost" size="icon" className="h-7 w-7 text-primary hover:bg-primary/10" onClick={() => onAddToCart(item)}>
                                                     <Plus className="h-4 w-4" />
                                                 </Button>
                                             </div>
                                         ) : (
-                                            <Button size="sm" className="bg-primary flex-grow sm:flex-grow-0" onClick={() => onAddToCart(item)}>
+                                            <Button size="sm" onClick={() => onAddToCart(item)}>
                                                 <ShoppingCart className="mr-2 h-4 w-4" /> Add
                                             </Button>
                                         )}
-                                        <Button size="sm" variant="outline" className="hover:bg-accent dark:bg-transparent dark:text-foreground dark:hover:bg-accent dark:hover:text-accent-foreground flex-grow sm:flex-grow-0" asChild>
+                                        <Button size="sm" variant="outline" asChild>
                                             <Link href="tel:8250104315">
                                                 <Phone className="mr-2 h-4 w-4" /> Call to Order
                                             </Link>
@@ -285,21 +285,21 @@ export const ProductDetailDialog = ({
 
                 {/* Details Section */}
                 <div className="w-full md:w-1/2 bg-background md:rounded-r-lg flex flex-col flex-grow min-h-0">
-                    <ScrollArea className="h-full">
-                        <div className="p-6 md:p-8 flex flex-col h-full">
-                            <DialogHeader className="text-left mb-6">
-                                <DialogTitle className="text-3xl md:text-4xl font-extrabold tracking-tight">{item.name}</DialogTitle>
-                                <DialogDescription className="text-base text-muted-foreground pt-2">{item.description}</DialogDescription>
-                            </DialogHeader>
+                    <div className="flex-grow p-6 md:p-8 flex flex-col min-h-0">
+                        <DialogHeader className="text-left mb-4">
+                            <DialogTitle className="text-3xl md:text-4xl font-extrabold tracking-tight">{item.name}</DialogTitle>
+                            <DialogDescription className="text-base text-muted-foreground pt-2">{item.description}</DialogDescription>
+                        </DialogHeader>
 
-                            <div className="flex-grow space-y-6">
-                                <div className="flex items-baseline gap-3">
-                                    <span className="font-bold text-4xl text-primary">Rs. {item.price}</span>
-                                    {item.originalPrice && <del className="text-xl text-muted-foreground">Rs. {item.originalPrice}</del>}
-                                </div>
-                                
-                                <Separator />
+                        <div className="flex items-baseline gap-3 mb-6">
+                            <span className="font-bold text-4xl text-primary">Rs. {item.price}</span>
+                            {item.originalPrice && <del className="text-xl text-muted-foreground">Rs. {item.originalPrice}</del>}
+                        </div>
 
+                        <Separator />
+                        
+                        <ScrollArea className="flex-grow my-6 -mr-4 pr-4">
+                            <div className="space-y-6">
                                 <div className="space-y-2">
                                     <h4 className="font-semibold text-lg">Ratings</h4>
                                     <div className="flex items-center gap-2">
@@ -333,39 +333,39 @@ export const ProductDetailDialog = ({
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div className="flex flex-col gap-3 pt-6 mt-auto">
-                                {cartItem ? (
-                                    <div className="w-full flex items-center justify-between gap-2 p-2 border-2 bg-primary/10 rounded-lg">
-                                        <Button variant="ghost" size="icon" className="h-10 w-10 rounded-md text-primary" onClick={() => onRemoveFromCart(item.name)}>
-                                            <Minus className="h-5 w-5" />
-                                        </Button>
-                                        <span className="font-bold text-xl w-10 text-center text-primary">{cartItem.quantity}</span>
-                                        <Button variant="ghost" size="icon" className="h-10 w-10 rounded-md text-primary" onClick={() => onAddToCart(item)}>
-                                            <Plus className="h-5 w-5" />
-                                        </Button>
-                                    </div>
-                                ) : (
-                                    <Button size="lg" className="w-full" onClick={() => onAddToCart(item)}>
-                                        <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
+                        </ScrollArea>
+                        
+                        <div className="flex flex-col gap-3 pt-6 mt-auto border-t">
+                            {cartItem ? (
+                                <div className="w-full flex items-center justify-between gap-2 p-2 border-2 bg-primary/10 rounded-lg">
+                                    <Button variant="ghost" size="icon" className="h-10 w-10 rounded-md text-primary" onClick={() => onRemoveFromCart(item.name)}>
+                                        <Minus className="h-5 w-5" />
                                     </Button>
-                                )}
-                                 <Button size="lg" variant="secondary" className="w-full" onClick={onCartClick}>
-                                    View Cart
-                                 </Button>
-                                <Button size="lg" variant="outline" className="w-full border-green-500 text-green-600 hover:bg-green-500 hover:text-white" asChild>
-                                    <Link href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer">
-                                        <WhatsappIcon className="mr-2 h-5 w-5" /> Order on WhatsApp
-                                    </Link>
+                                    <span className="font-bold text-xl w-10 text-center text-primary">{cartItem.quantity}</span>
+                                    <Button variant="ghost" size="icon" className="h-10 w-10 rounded-md text-primary" onClick={() => onAddToCart(item)}>
+                                        <Plus className="h-5 w-5" />
+                                    </Button>
+                                </div>
+                            ) : (
+                                <Button size="lg" className="w-full" onClick={() => onAddToCart(item)}>
+                                    <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
                                 </Button>
-                                <Button size="lg" variant="outline" className="w-full" asChild>
-                                  <Link href="tel:8250104315">
-                                      <Phone className="mr-2 h-5 w-5" /> Call to Order
-                                  </Link>
-                                </Button>
-                            </div>
+                            )}
+                             <Button size="lg" variant="secondary" className="w-full" onClick={onCartClick}>
+                                View Cart
+                             </Button>
+                            <Button size="lg" variant="outline" className="w-full border-green-500 text-green-600 hover:bg-green-500 hover:text-white" asChild>
+                                <Link href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer">
+                                    <WhatsappIcon className="mr-2 h-5 w-5" /> Order on WhatsApp
+                                </Link>
+                            </Button>
+                            <Button size="lg" variant="outline" className="w-full" asChild>
+                              <Link href="tel:8250104315">
+                                  <Phone className="mr-2 h-5 w-5" /> Call to Order
+                              </Link>
+                            </Button>
                         </div>
-                    </ScrollArea>
+                    </div>
                 </div>
             </DialogContent>
         </Dialog>
@@ -879,7 +879,7 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                     </div>
 
                     <div className="space-y-12">
-                    {allMenuItems.flatMap((category, i) => {
+                    {allMenuItems.map((category, i) => {
                         const categoryComponent = (
                             <div className='container mx-auto px-4' key={category.name}>
                                 <ProductCategory 
