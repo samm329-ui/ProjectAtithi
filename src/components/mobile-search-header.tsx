@@ -73,7 +73,7 @@ const MobileSearchHeader = ({ onSearch, searchQuery, allMenuItems, onProductSele
                         <div className="group flex-grow relative">
                             <Search className="icon" />
                             <input
-                                type="search"
+                                type="text"
                                 placeholder="Search for dishes"
                                 className="input"
                                 value={searchQuery}
@@ -91,17 +91,17 @@ const MobileSearchHeader = ({ onSearch, searchQuery, allMenuItems, onProductSele
             </header>
 
             {searchQuery && (
-                <div className="fixed top-[73px] left-0 right-0 bottom-0 bg-background z-30 md:hidden">
+                <div className="fixed inset-0 bg-background z-30 md:hidden">
                     <ScrollArea className="h-full">
-                         <div className="container mx-auto px-4 py-2">
+                        <div className="container mx-auto px-4 pb-2 pt-[63px]">
                             {searchResults.length > 0 ? (
                                 <>
-                                    <p className="text-sm font-semibold text-muted-foreground mb-2">Showing results for "{searchQuery}"</p>
-                                    <div className="space-y-3">
+                                    <p className="text-sm font-semibold text-muted-foreground mb-1">Showing results for "{searchQuery}"</p>
+                                    <div className="space-y-2 pt-2">
                                         {searchResults.map(item => {
                                             const imageData = PlaceHolderImages.find(img => img.id === item.name);
                                             return (
-                                                <button key={item.name} onClick={() => handleResultClick(item)} className="w-full text-left flex items-center gap-4 p-3 rounded-lg hover:bg-secondary">
+                                                <button key={item.name} onClick={() => handleResultClick(item)} className="w-full text-left flex items-center gap-4 p-2 rounded-lg hover:bg-secondary">
                                                     <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
                                                         {imageData ? (
                                                             <Image src={imageData.imageUrl} alt={item.name} fill className="object-cover" />
