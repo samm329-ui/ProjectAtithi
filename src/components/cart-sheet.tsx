@@ -12,6 +12,7 @@ import { type CartItem } from '@/app/page';
 import { type MenuItem } from '@/lib/menu';
 import { cn } from '@/lib/utils';
 import { WhatsappIcon } from './icons';
+import { OrderFormDialog } from './order-form-dialog';
 
 type CartSheetProps = {
     cart: CartItem[];
@@ -32,6 +33,7 @@ const CartSheet = ({
     isOpen, 
     onOpenChange 
 }: CartSheetProps) => {
+    const [isOrderFormOpen, setIsOrderFormOpen] = React.useState(false);
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
     const totalSavings = cart.reduce((total, item) => {
@@ -41,10 +43,11 @@ const CartSheet = ({
         return total;
     }, 0);
 
-    const generateWhatsAppMessage = () => {
-        const orderDetails = cart.map(item => `${item.name} (x${item.quantity}) - Rs. ${(item.price * item.quantity).toFixed(2)}`).join('\n');
-        const message = `Hello, I would like to place the following order:\n\n${orderDetails}\n\nTotal: Rs. ${totalPrice.toFixed(2)}`;
-        return `https://wa.me/918250104315?text=${encodeURIComponent(message)}`;
+    const handleOrderOnWhatsAppClick = () => {
+        if (onOpenChange) {
+            onOpenChange(false);
+        }
+        setIsOrderFormOpen(true);
     };
 
     const content = (
@@ -106,10 +109,8 @@ const CartSheet = ({
                                     <Phone className="mr-2 h-4 w-4" /> Call to Order
                                 </Link>
                             </Button>
-                            <Button size="lg" disabled={cart.length === 0} className="w-full bg-green-500 hover:bg-green-600 text-white" asChild>
-                                <Link href={generateWhatsAppMessage()} target="_blank" rel="noopener noreferrer">
-                                    <WhatsappIcon className="mr-2 h-4 w-4" /> Order on WhatsApp
-                                </Link>
+                            <Button size="lg" disabled={cart.length === 0} className="w-full bg-green-500 hover:bg-green-600 text-white" onClick={handleOrderOnWhatsAppClick}>
+                                <WhatsappIcon className="mr-2 h-4 w-4" /> Order on WhatsApp
                             </Button>
                             <Button size="lg" variant="destructive" className="w-full" onClick={onEmptyCart}>
                                 Empty Cart
@@ -123,11 +124,21 @@ const CartSheet = ({
 
     // If children are provided, it's used with a trigger (desktop header)
     if (children) {
-        return <Sheet>{children}{content}</Sheet>;
+        return (
+            <React.Fragment>
+                <Sheet>{children}{content}</Sheet>
+                <OrderFormDialog isOpen={isOrderFormOpen} onOpenChange={setIsOrderFormOpen} cart={cart} />
+            </React.Fragment>
+        );
     }
 
     // If no children, it's controlled programmatically (mobile FAB)
-    return <Sheet open={isOpen} onOpenChange={onOpenChange}>{content}</Sheet>;
+    return (
+        <React.Fragment>
+            <Sheet open={isOpen} onOpenChange={onOpenChange}>{content}</Sheet>
+            <OrderFormDialog isOpen={isOrderFormOpen} onOpenChange={setIsOrderFormOpen} cart={cart} />
+        </React.Fragment>
+    );
 };
 
 export default CartSheet;
