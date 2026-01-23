@@ -256,21 +256,16 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>Time</FormLabel>
-                                        <div className="relative">
-                                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                                <Clock className="h-4 w-4 text-muted-foreground" />
-                                            </div>
-                                            <FormControl>
-                                                <Input
-                                                    type="time"
-                                                    {...field}
-                                                    className="w-full pl-10"
-                                                    min={getMinTimeForToday()}
-                                                    max="22:00"
-                                                    step="1800" // 30 minutes
-                                                />
-                                            </FormControl>
-                                        </div>
+                                        <FormControl>
+                                            <Input
+                                                type="time"
+                                                {...field}
+                                                className="w-full"
+                                                min={getMinTimeForToday()}
+                                                max="22:00"
+                                                step="1800" // 30 minutes
+                                            />
+                                        </FormControl>
                                     <FormMessage />
                                     </FormItem>
                                 )}
