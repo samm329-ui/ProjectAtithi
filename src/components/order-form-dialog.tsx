@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { format } from 'date-fns';
+import { format, isValid } from 'date-fns';
 import { CalendarIcon, Clock } from 'lucide-react';
 import {
   Dialog,
@@ -92,7 +92,7 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
 
     React.useEffect(() => {
         const selectedTime = form.getValues('time');
-        if (!selectedTime) return;
+        if (!selectedTime || !isValid(selectedDate)) return;
 
         const now = new Date();
         const isToday = format(selectedDate, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd');
@@ -130,6 +130,7 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
     };
 
     const getMinTimeForToday = () => {
+        if (!isValid(selectedDate)) return '10:00';
         const now = new Date();
         const isToday = format(selectedDate, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd');
         if (!isToday) return '10:00';
@@ -139,7 +140,12 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
         if (currentHour < 10) return '10:00'; // Before opening
 
         now.setMinutes(now.getMinutes() + 15); // 15 min buffer
-        return `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        const minHour = now.getHours();
+        const minMinute = now.getMinutes();
+
+        if (minHour >= 22) return '22:00';
+        
+        return `${String(minHour).padStart(2, '0')}:${String(minMinute).padStart(2, '0')}`;
     };
 
     return (
@@ -239,7 +245,6 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
                                             mode="single"
                                             selected={field.value}
                                             onSelect={field.onChange}
-                                            disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
                                             initialFocus
                                         />
                                         </PopoverContent>
