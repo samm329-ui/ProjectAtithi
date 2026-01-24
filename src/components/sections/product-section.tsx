@@ -35,6 +35,8 @@ import { Phone, Star, Filter, ShoppingCart, Plus, Minus, ChevronLeft, ChevronRig
 import Link from 'next/link';
 import { type CartItem } from '@/app/page';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 
 const CategoryProductDialog = ({
     isOpen,
@@ -471,10 +473,7 @@ const ProductCategory = ({
     
     return (
         <div>
-            <div className="flex flex-col md:flex-row justify-between md:items-center mb-6">
-                <h3 id={category.name.toLowerCase().replace(/\s+/g, '-')} className="text-2xl md:text-3xl font-bold flex items-center gap-4 mb-4 md:mb-0 text-foreground scroll-mt-24">
-                    {category.name}
-                </h3>
+            <div className="flex flex-col md:flex-row justify-end md:items-center mb-6">
                 <div className='flex items-center gap-4'>
                     <Select onValueChange={handleSortChange} value={selectedSort}>
                         <SelectTrigger className="w-[180px]">
@@ -662,57 +661,28 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
                         traditional flavors to modern delights.
                     </p>
                 </div>
-            </div>
-
-            <div className="space-y-12">
-            {allMenuItems.map((category, i) => {
-                const categoryComponent = (
-                    <div className='container mx-auto px-4' key={category.name}>
-                        <ProductCategory 
-                            category={{...category, items: category.items}}
-                            cart={cart} 
-                            onAddToCart={onAddToCart} 
-                            onRemoveFromCart={onRemoveFromCart}
-                            onCardClick={onCardClick}
-                        />
+                 <Tabs defaultValue={allMenuItems[0]?.name} className="w-full">
+                    <div className="flex justify-center mb-8">
+                        <TabsList className="h-auto flex-wrap justify-center">
+                            {allMenuItems.map((category) => (
+                                <TabsTrigger key={category.name} value={category.name}>
+                                    {category.name}
+                                </TabsTrigger>
+                            ))}
+                        </TabsList>
                     </div>
-                );
-
-                let bannerComponent = null;
-
-                if (category.name === 'Menu') {
-                    bannerComponent = (
-                        <div key="banner-menu" className="my-12">
-                            <Image
-                                src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(5).png"
-                                alt="Special Offer Banner"
-                                width={1920}
-                                height={400}
-                                className="object-cover w-full"
+                    {allMenuItems.map((category) => (
+                        <TabsContent key={category.name} value={category.name}>
+                            <ProductCategory 
+                                category={category}
+                                cart={cart} 
+                                onAddToCart={onAddToCart} 
+                                onRemoveFromCart={onRemoveFromCart}
+                                onCardClick={onCardClick}
                             />
-                        </div>
-                    );
-                }
-                    else if (category.name === 'Rolls') {
-                    bannerComponent = (
-                        <div key="banner-rolls" className="my-12">
-                            <Image
-                                src="https://ihpfajyotvzcdqagdslw.supabase.co/storage/v1/object/public/atithifamilyrestaurant24x7@gmail.com's%20Org/image%20(6).png"
-                                alt="Special Offer Banner"
-                                width={1920}
-                                height={400}
-                                className="object-cover w-full"
-                            />
-                        </div>
-                    );
-                }
-
-                if (bannerComponent) {
-                    return [categoryComponent, bannerComponent];
-                }
-                
-                return [categoryComponent];
-            })}
+                        </TabsContent>
+                    ))}
+                </Tabs>
             </div>
         </div>
 
