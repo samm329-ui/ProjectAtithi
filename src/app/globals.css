@@ -259,3 +259,8 @@
   transition: all 0.3s;
 }
     
+.rdp-day_disabled {
+    color: hsl(var(--destructive) / 0.5) !important;
+    text-decoration: none !important;
+}
+    
