@@ -2,25 +2,28 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import Header from "@/components/header";
 import HeroSection from "@/components/sections/hero-section";
-import MenuSection from "@/components/sections/menu-section";
-import BestSellerSection from "@/components/sections/best-seller-section";
-import ProductSection from "@/components/sections/product-section";
-import ReviewsSection from "@/components/sections/reviews-section";
-import RecommendationSection from "@/components/sections/recommendation-section";
-import Footer from "@/components/footer";
 import { useToast } from "@/hooks/use-toast";
 import { type MenuItem, menuData } from "@/lib/menu";
-import { ProductDetailDialog } from "@/components/sections/product-section";
 import { config, type Review } from "@/lib/utils";
-import WriteReviewSection from "@/components/sections/write-review-section";
-import ContactSection from "@/components/sections/contact-section";
 import MobileSearchHeader from "@/components/mobile-search-header";
-import CartSheet from "@/components/cart-sheet";
-import { MenuDialog } from "@/components/menu-dialog";
 import MobileHeroCarousel from "@/components/mobile-hero-carousel";
 import { MobileBottomNav } from "@/components/mobile-bottom-nav";
+
+const MenuSection = dynamic(() => import("@/components/sections/menu-section"));
+const BestSellerSection = dynamic(() => import("@/components/sections/best-seller-section"));
+const ProductSection = dynamic(() => import("@/components/sections/product-section"));
+const ReviewsSection = dynamic(() => import("@/components/sections/reviews-section"));
+const RecommendationSection = dynamic(() => import("@/components/sections/recommendation-section"));
+const Footer = dynamic(() => import("@/components/footer"));
+const WriteReviewSection = dynamic(() => import("@/components/sections/write-review-section"));
+const ContactSection = dynamic(() => import("@/components/sections/contact-section"));
+const ProductDetailDialog = dynamic(() => import("@/components/product-detail-dialog").then(mod => mod.ProductDetailDialog));
+const CartSheet = dynamic(() => import("@/components/cart-sheet"));
+const MenuDialog = dynamic(() => import("@/components/menu-dialog").then(mod => mod.MenuDialog));
+
 
 export type CartItem = MenuItem & { quantity: number };
 
