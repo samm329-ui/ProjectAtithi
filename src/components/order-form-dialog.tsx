@@ -4,8 +4,6 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { format, isValid } from 'date-fns';
-import { CalendarIcon, Clock } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -20,30 +18,11 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { type CartItem } from '@/app/page';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Calendar } from '@/components/ui/calendar';
-import { cn } from '@/lib/utils';
-
-// Helper function to format 24-hour time to 12-hour time with AM/PM
-const formatTime12 = (time24: string): string => {
-    if (!time24) return '';
-    const [hours, minutes] = time24.split(':');
-    const h = parseInt(hours, 10);
-    const ampm = h >= 12 ? 'PM' : 'AM';
-    const hour12 = h % 12 || 12; // Convert 0 to 12
-    return `${String(hour12).padStart(2, '0')}:${minutes} ${ampm}`;
-};
 
 const formSchema = z.object({
     name: z.string().min(2, { message: "Name must be at least 2 characters." }),
     phone: z.string().min(10, { message: "Please enter a valid 10-digit phone number." }).max(15),
     deliveryOption: z.enum(['delivery', 'dine-in'], { required_error: "Please select an option." }),
-    date: z.date({
-        required_error: "A date is required.",
-    }),
-    time: z.string({
-        required_error: "A time is required.",
-    }).min(1, { message: "A time is required." }),
     address: z.string().optional(),
     pincode: z.string().optional(),
 }).superRefine((data, ctx) => {
@@ -80,75 +59,20 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
             name: '',
             phone: '',
             deliveryOption: 'delivery',
-            date: new Date(),
-            time: '',
             address: '',
             pincode: '',
         },
     });
 
     const deliveryOption = form.watch('deliveryOption');
-    const selectedDate = form.watch('date');
-
-    React.useEffect(() => {
-        if (!selectedDate || !isValid(selectedDate)) return;
-        const selectedTime = form.getValues('time');
-        if (!selectedTime) return;
-
-        const now = new Date();
-        const isToday = format(selectedDate, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd');
-        
-        if (isToday) {
-            const [hour, minute] = selectedTime.split(':').map(Number);
-            const selectedDateTime = new Date(selectedDate);
-            selectedDateTime.setHours(hour, minute, 0, 0);
-            if (selectedDateTime < now) {
-                form.setValue('time', '');
-            }
-        }
-    }, [selectedDate, form]);
-
-    const getMinTimeForToday = () => {
-        if (!selectedDate || !isValid(selectedDate)) return '10:00';
-        const now = new Date();
-        const isToday = format(selectedDate, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd');
-        if (!isToday) return '10:00';
-
-        const currentHour = now.getHours();
-        const openingHour = 10;
-        const closingHour = 22;
-
-        if (currentHour >= closingHour) {
-            // It's past closing time, but maybe they are ordering for tomorrow.
-            // Since we are on today, they can't order.
-            // This case is for today, after closing.
-            return `${closingHour}:00`; 
-        }
-
-        if (currentHour < openingHour) {
-            return `${String(openingHour).padStart(2, '0')}:00`;
-        }
-
-        now.setMinutes(now.getMinutes() + 15); // 15 min buffer
-        const minHour = now.getHours();
-        const minMinute = now.getMinutes();
-
-        if (minHour >= closingHour) {
-             return `${closingHour}:00`;
-        }
-        
-        return `${String(minHour).padStart(2, '0')}:${String(minMinute).padStart(2, '0')}`;
-    };
 
     const onSubmit = (data: OrderFormValues) => {
         const orderDetails = cart.map(item => `${item.name} (x${item.quantity}) - Rs. ${(item.price * item.quantity).toFixed(2)}`).join('\n');
         const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 
         const orderType = data.deliveryOption === 'delivery' ? 'Delivery' : 'Dine-in';
-        const formattedDate = format(data.date, "PPP");
-        const formattedTime = formatTime12(data.time);
 
-        let customerDetails = `*Customer Details:*\nName: ${data.name}\nPhone: ${data.phone}\nOrder Type: ${orderType}\nDate: ${formattedDate}\nTime: ${formattedTime}`;
+        let customerDetails = `*Customer Details:*\nName: ${data.name}\nPhone: ${data.phone}\nOrder Type: ${orderType}`;
 
         if (data.deliveryOption === 'delivery') {
             customerDetails += `\nAddress: ${data.address}\nPincode: ${data.pincode}`;
@@ -228,68 +152,6 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
                             )}
                         />
                         
-                        <div className="grid grid-cols-2 gap-4">
-                            <FormField
-                                control={form.control}
-                                name="date"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col">
-                                    <FormLabel>Date</FormLabel>
-                                    <Popover>
-                                        <PopoverTrigger asChild>
-                                        <FormControl>
-                                            <Button
-                                            variant={"outline"}
-                                            className={cn(
-                                                "w-full pl-3 text-left font-normal",
-                                                !field.value && "text-muted-foreground"
-                                            )}
-                                            >
-                                            {field.value && isValid(field.value) ? (
-                                                format(field.value, "PPP")
-                                            ) : (
-                                                <span>Pick a date</span>
-                                            )}
-                                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                                            </Button>
-                                        </FormControl>
-                                        </PopoverTrigger>
-                                        <PopoverContent className="w-auto p-0" align="start">
-                                        <Calendar
-                                            mode="single"
-                                            selected={field.value}
-                                            onSelect={field.onChange}
-                                            disabled={(date) => date < new Date(new Date().toDateString())}
-                                            initialFocus
-                                        />
-                                        </PopoverContent>
-                                    </Popover>
-                                    <FormMessage />
-                                    </FormItem>
-                                )}
-                                />
-                                <FormField
-                                control={form.control}
-                                name="time"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Time</FormLabel>
-                                        <FormControl>
-                                            <Input
-                                                type="time"
-                                                {...field}
-                                                className="w-full"
-                                                min={getMinTimeForToday()}
-                                                max="22:00"
-                                                step="1800" // 30 minutes
-                                            />
-                                        </FormControl>
-                                    <FormMessage />
-                                    </FormItem>
-                                )}
-                                />
-                        </div>
-
                         {deliveryOption === 'delivery' && (
                             <>
                                 <FormField
