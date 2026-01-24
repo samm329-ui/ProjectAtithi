@@ -1,4 +1,3 @@
-
 'use client';
 
 import * as React from 'react';
@@ -25,7 +24,7 @@ const formSchema = z.object({
     phone: z.string().min(10, { message: "Please enter a valid 10-digit phone number." }).max(15),
     date: z.string({ required_error: "Please select a date." }),
     time: z.string({ required_error: "Please select a time." }),
-    deliveryOption: z.enum(['delivery', 'dine-in'], { required_error: "Please select an option." }),
+    deliveryOption: z.enum(['delivery', 'dine-in', 'take-away'], { required_error: "Please select an option." }),
     address: z.string().optional(),
     pincode: z.string().optional(),
 }).superRefine((data, ctx) => {
@@ -75,7 +74,20 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
         const orderDetails = cart.map(item => `${item.name} (x${item.quantity}) - Rs. ${(item.price * item.quantity).toFixed(2)}`).join('\n');
         const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 
-        const orderType = data.deliveryOption === 'delivery' ? 'Delivery' : 'Dine-in';
+        let orderType: string;
+        switch (data.deliveryOption) {
+            case 'delivery':
+                orderType = 'Delivery';
+                break;
+            case 'dine-in':
+                orderType = 'Dine-in';
+                break;
+            case 'take-away':
+                orderType = 'Take Away';
+                break;
+            default:
+                orderType = 'Not specified';
+        }
         
         const formattedDate = new Date(data.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
 
@@ -140,6 +152,12 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
                                                 </FormControl>
                                                 <FormLabel className="font-normal">Dine-in</FormLabel>
                                             </FormItem>
+                                            <FormItem className="flex items-center space-x-2 space-y-0">
+                                                <FormControl>
+                                                    <RadioGroupItem value="take-away" />
+                                                </FormControl>
+                                                <FormLabel className="font-normal">Take Away</FormLabel>
+                                            </FormItem>
                                         </RadioGroup>
                                     </FormControl>
                                     <FormMessage />
@@ -183,7 +201,6 @@ export function OrderFormDialog({ isOpen, onOpenChange, cart }: OrderFormDialogP
                                             type="date"
                                             className="input w-full"
                                             {...field}
-                                            min={new Date().toISOString().split("T")[0]}
                                         />
                                     </FormControl>
                                     <FormMessage />
