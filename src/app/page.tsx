@@ -189,6 +189,7 @@ export default function Home() {
                       className="object-cover w-full"
                       priority
                       sizes="100vw"
+                      unoptimized={true}
                   />
               </div>
               <div className="px-4">
@@ -209,6 +210,7 @@ export default function Home() {
                 height={400}
                 className="object-cover w-full"
                 sizes="100vw"
+                unoptimized={true}
               />
             </div>
             
@@ -224,6 +226,7 @@ export default function Home() {
                     height={400}
                     className="object-cover w-full"
                     sizes="100vw"
+                    unoptimized={true}
                 />
             </div>
             
@@ -246,6 +249,7 @@ export default function Home() {
                     height={400}
                     className="object-cover w-full"
                     sizes="100vw"
+                    unoptimized={true}
                 />
             </div>
             
