@@ -1,9 +1,7 @@
-
 "use client";
 
 import * as React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -13,7 +11,6 @@ import { type MenuItem } from '@/lib/menu';
 import { WhatsappIcon } from './icons';
 import { OrderFormDialog } from './order-form-dialog';
 import { cn } from '@/lib/utils';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 type CartSheetProps = {
     cart: CartItem[];
@@ -79,23 +76,9 @@ const CartSheet = ({
                 ) : (
                     <div className="p-6 pt-2 space-y-4">
                         {cart.map(item => {
-                            const imageData = PlaceHolderImages.find(img => img.id === item.name);
                             return (
                                 <div key={item.name} className="flex items-center bg-white/60 p-4 rounded-[18px] shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
-                                    {imageData ? (
-                                        <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
-                                            <Image
-                                                src={imageData.imageUrl}
-                                                alt={item.name}
-                                                fill
-                                                sizes="64px"
-                                                className="object-cover"
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div className="w-16 h-16 rounded-md bg-muted flex-shrink-0"></div>
-                                    )}
-                                    <div className="flex-grow ml-4">
+                                    <div className="flex-grow">
                                         <p className="font-bold text-base">{item.name}</p>
                                         <p className="text-sm text-muted-foreground mt-1">
                                             Rs. {item.price} per plate
