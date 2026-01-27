@@ -32,6 +32,7 @@ export function MobileBottomNav({ cartCount, onCartClick, onMenuClick }: MobileB
                 key={item.label}
                 onClick={onCartClick}
                 className="relative flex flex-col items-center justify-center text-center text-muted-foreground hover:text-primary transition-colors group"
+                suppressHydrationWarning={true}
               >
                 <item.icon className="h-6 w-6 mb-1 group-hover:scale-110 transition-transform" />
                 <span className="text-xs font-medium">{item.label}</span>
@@ -50,6 +51,7 @@ export function MobileBottomNav({ cartCount, onCartClick, onMenuClick }: MobileB
                 key={item.label}
                 onClick={onMenuClick}
                 className="flex flex-col items-center justify-center text-center text-muted-foreground hover:text-primary transition-colors group"
+                suppressHydrationWarning={true}
               >
                 <item.icon className="h-6 w-6 mb-1 group-hover:scale-110 transition-transform" />
                 <span className="text-xs font-medium">{item.label}</span>
