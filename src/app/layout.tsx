@@ -3,18 +3,11 @@ import type {Metadata} from 'next';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
 import { config, cn } from '@/lib/utils';
-import { Playfair_Display, Poppins } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:9002';
 
-const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  weight: '600',
-  variable: '--font-logo',
-  display: 'swap',
-});
-
-const poppins = Poppins({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-body',
@@ -113,7 +106,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn(poppins.variable, playfairDisplay.variable)}>
+    <html lang="en" suppressHydrationWarning className={cn(inter.variable)}>
       <head>
         <link rel="preconnect" href="https://yryoxzexvuhimvezdwle.supabase.co" />
         <link rel="preconnect" href="https://ihpfajyotvzcdqagdslw.supabase.co" />

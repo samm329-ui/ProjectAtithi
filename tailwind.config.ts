@@ -11,7 +11,6 @@ export default {
     extend: {
       fontFamily: {
         body: ['var(--font-body)', 'sans-serif'],
-        logo: ['var(--font-logo)', 'serif'],
         code: ['monospace'],
       },
       colors: {
