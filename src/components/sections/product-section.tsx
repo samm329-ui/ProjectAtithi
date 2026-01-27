@@ -298,6 +298,7 @@ const ProductRow = React.memo(({
                                                   src={imageData.imageUrl}
                                                   alt={item.description}
                                                   fill
+                                                  sizes="(max-width: 640px) 80vw, 33vw"
                                                   data-ai-hint={imageData.imageHint}
                                                   className="object-cover rounded-t-[30px]"
                                               />

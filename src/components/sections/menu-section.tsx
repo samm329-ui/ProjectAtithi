@@ -79,6 +79,7 @@ const MenuSection = () => {
                                                     src={imageData.imageUrl}
                                                     alt={imageData.description || `Page from Atithi's menu: ${card.name}`}
                                                     fill
+                                                    sizes="(max-width: 640px) 80vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                                     data-ai-hint={imageData.imageHint}
                                                     className="object-contain rounded-lg shadow-lg"
                                                 />
