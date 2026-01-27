@@ -647,9 +647,8 @@ const MobileProductFilters = React.memo(({ allMenuItems, handleOpenCategoryDialo
                             handleOpenCategoryDialog(category);
                         }
                     }}
-                    suppressHydrationWarning={true}
                     >
-                        <SelectTrigger className="h-12 bg-white text-foreground border-border rounded-xl text-[15px] font-medium px-[18px]" suppressHydrationWarning={true}>
+                        <SelectTrigger className="h-12 bg-white text-foreground border-border rounded-xl text-[15px] font-medium px-[18px]">
                             <SelectValue placeholder="All Categories" />
                         </SelectTrigger>
                         <SelectContent>
@@ -664,8 +663,8 @@ const MobileProductFilters = React.memo(({ allMenuItems, handleOpenCategoryDialo
                             ))}
                         </SelectContent>
                     </Select>
-                    <Select defaultValue="popular" suppressHydrationWarning={true}>
-                        <SelectTrigger className="h-12 bg-white text-foreground border-border rounded-xl text-[15px] font-medium px-[18px]" suppressHydrationWarning={true}>
+                    <Select defaultValue="popular">
+                        <SelectTrigger className="h-12 bg-white text-foreground border-border rounded-xl text-[15px] font-medium px-[18px]">
                             <SelectValue placeholder="Sort by: Popular" />
                         </SelectTrigger>
                         <SelectContent>
@@ -793,5 +792,3 @@ const ProductSection = ({ allMenuItems, cart, onAddToCart, onRemoveFromCart, onC
 };
 
 export default ProductSection;
-
-    
