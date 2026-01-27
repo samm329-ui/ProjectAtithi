@@ -52,9 +52,9 @@ const CartSheet = ({
     const content = (
         <SheetContent className={cn(
             "bg-[#F8F5F0] text-[#3D3227] p-0 flex flex-col",
-            // Responsive styling: full-screen sheet on mobile, modal on desktop
-            "w-full h-full inset-0 border-0",
-            "md:w-auto md:h-auto md:max-h-[90vh] md:max-w-4xl md:inset-auto md:rounded-2xl md:shadow-2xl md:border"
+            // Responsive styling: full-screen on mobile, modal on desktop
+            "inset-0 w-full h-full border-0", // base (mobile)
+            "md:inset-auto md:w-auto md:h-auto md:max-h-[90vh] md:max-w-4xl md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-2xl md:shadow-2xl md:border" // desktop
         )}>
             <SheetHeader className="p-6 pb-4 flex-shrink-0">
                 <SheetTitle className="text-2xl font-bold">Your Cart</SheetTitle>
