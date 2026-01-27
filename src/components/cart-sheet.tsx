@@ -52,9 +52,7 @@ const CartSheet = ({
     const content = (
         <SheetContent className={cn(
             "bg-[#F8F5F0] text-[#3D3227] p-0 flex flex-col",
-            // Responsive styling: full-screen on mobile, modal on desktop
-            "inset-0 w-full h-full border-0", // base (mobile)
-            "md:inset-auto md:w-auto md:h-auto md:max-h-[90vh] md:max-w-4xl md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-2xl md:shadow-2xl md:border" // desktop
+            "inset-0 w-full h-full border-0" // Make it full-screen on all devices
         )}>
             <SheetHeader className="p-6 pb-4 flex-shrink-0">
                 <SheetTitle className="text-2xl font-bold">Your Cart</SheetTitle>
@@ -73,8 +71,8 @@ const CartSheet = ({
                         <p className="mt-1 text-sm text-muted-foreground">Add items from the menu to get started.</p>
                     </div>
                 ) : (
-                    <div className="p-6 h-full md:grid md:grid-cols-[1fr_340px] md:gap-x-12">
-                        <div className="md:h-full md:overflow-y-auto md:pr-6 md:-mr-6 space-y-4">
+                    <div className="p-6 h-full flex flex-col">
+                        <div className="flex-grow space-y-4 overflow-y-auto pb-4">
                             {cart.map(item => (
                                 <div key={item.name} className="flex justify-between items-center bg-white/60 p-4 rounded-[18px] shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
                                     <div className="flex-grow">
@@ -99,8 +97,8 @@ const CartSheet = ({
                             ))}
                         </div>
 
-                        <div className="space-y-4 mt-8 md:mt-0">
-                            <div className="space-y-2">
+                        <div className="space-y-4 flex-shrink-0">
+                             <div className="space-y-2">
                                  {totalSavings > 0 && (
                                     <>
                                         <Separator className="bg-black/10"/>
