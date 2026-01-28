@@ -163,33 +163,7 @@ export const ProductDetailDialog = ({
                                         </div>
                                     </div>
                                 </div>
-                                
-                                {suggestedItems.length > 0 && (
-                                    <div className="space-y-4 mb-6">
-                                        <h4 className="font-semibold text-lg">You might also like</h4>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            {suggestedItems.map(suggestedItem => {
-                                                const suggestedImageData = PlaceHolderImages.find(img => img.id === suggestedItem.name);
-                                                return (
-                                                    <button key={suggestedItem.name} onClick={() => onSelectItem(suggestedItem)} className="text-left w-full rounded-lg border bg-card text-card-foreground shadow-sm hover:bg-secondary transition-colors overflow-hidden">
-                                                        <div className="relative aspect-square w-full">
-                                                            {suggestedImageData ? (
-                                                                <Image src={suggestedImageData.imageUrl} alt={suggestedItem.name} fill className="object-cover" unoptimized={true} />
-                                                            ) : (
-                                                                <div className="w-full h-full bg-muted rounded-t-lg" />
-                                                            )}
-                                                        </div>
-                                                        <div className="p-3">
-                                                            <p className="font-semibold text-sm truncate">{suggestedItem.name}</p>
-                                                            <p className="text-xs text-muted-foreground">Rs. {suggestedItem.price}</p>
-                                                        </div>
-                                                    </button>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                )}
-                                
+                                                                
                                 <div className="flex flex-col gap-3 pt-6 border-t">
                                     {cartItem ? (
                                         <div className="w-full flex items-center justify-between gap-2 p-2 border-2 bg-primary/10 rounded-lg">
@@ -218,6 +192,32 @@ export const ProductDetailDialog = ({
                                     </Link>
                                     </Button>
                                 </div>
+                                
+                                {suggestedItems.length > 0 && (
+                                    <div className="space-y-4 pt-8 mt-8 border-t">
+                                        <h4 className="font-semibold text-lg">You might also like</h4>
+                                        <div className="grid grid-cols-2 gap-4">
+                                            {suggestedItems.map(suggestedItem => {
+                                                const suggestedImageData = PlaceHolderImages.find(img => img.id === suggestedItem.name);
+                                                return (
+                                                    <button key={suggestedItem.name} onClick={() => onSelectItem(suggestedItem)} className="text-left w-full rounded-lg border bg-card text-card-foreground shadow-sm hover:bg-secondary transition-colors overflow-hidden">
+                                                        <div className="relative aspect-square w-full">
+                                                            {suggestedImageData ? (
+                                                                <Image src={suggestedImageData.imageUrl} alt={suggestedItem.name} fill className="object-cover" unoptimized={true} />
+                                                            ) : (
+                                                                <div className="w-full h-full bg-muted rounded-t-lg" />
+                                                            )}
+                                                        </div>
+                                                        <div className="p-3">
+                                                            <p className="font-semibold text-sm truncate">{suggestedItem.name}</p>
+                                                            <p className="text-xs text-muted-foreground">Rs. {suggestedItem.price}</p>
+                                                        </div>
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </ScrollArea>
                     </div>
