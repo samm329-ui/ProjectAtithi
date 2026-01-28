@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -46,7 +45,7 @@ const ProductMenuDropdown = ({ onAddToCart, onProductSelect, onOpenChange, class
                     </DropdownMenuSubTrigger>
                     <DropdownMenuPortal>
                         <DropdownMenuSubContent className="bg-background/80 backdrop-blur-sm p-0">
-                            <ScrollArea className="h-auto max-h-96 w-full p-1">
+                            <ScrollArea className="max-h-96 w-full p-1">
                                 {category.items.map(item => (
                                     <DropdownMenuItem key={item.name} className="flex justify-between items-center" onSelect={(e) => {
                                         e.preventDefault();
